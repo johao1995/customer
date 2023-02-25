@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_module_category_sales_management" model="ir.module.category">
+        <field name="name">Management Sales</field>
+    </record>
+
+    <record id="res_groups_sales_management" model="res.groups">
+        <field name="name">Acceso Management Sales</field>
+        <field name="category_id" ref="sales_management.ir_module_category_sales_management"/>
+    </record>
+</odoo>

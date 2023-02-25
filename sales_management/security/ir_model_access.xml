@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_model_access_customer" model="ir.model.access">
+        <field name="name">ir_model_access_customer</field> 
+        <field name="model_id" ref="sales_management.model_sales_management_customer"/>
+        <field name="group_id" ref="res_groups_sales_management"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_commercial" model="ir.model.access">
+        <field name="name">ir_model_access_commercial</field> 
+        <field name="model_id" ref="sales_management.model_sales_management_commercial"/>
+        <field name="group_id" ref="res_groups_sales_management"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_order" model="ir.model.access">
+        <field name="name">ir_model_access_order</field> 
+        <field name="model_id" ref="sales_management.model_sales_management_order"/>
+        <field name="group_id" ref="res_groups_sales_management"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+</odoo>

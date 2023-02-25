@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sales_management.view_commercial_form" model="ir.ui.view">
+        <field name="name">sales_management.view.commercial.form</field>
+        <field name="model">sales_management.commercial</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellido1"/>
+                            <field name="apellido2"/>
+                        </group>
+                        <group>
+                            <field name="city"/>
+                            <field name="commission"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sales_management.view_commercial_tree" model="ir.ui.view">
+        <field name="name">sales_management.view.commercial.tree</field>
+        <field name="model">sales_management.commercial</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="name"/>
+                    <field name="apellido1"/>
+                    <field name="apellido2"/>
+                    <field name="city"/>
+                    <field name="commission"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sales_management.action_commercial" model="ir.actions.act_window">
+        <field name="name">Commercial</field>
+        <field name="res_model">sales_management.commercial</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+</odoo>

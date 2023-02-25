@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="sales_management.view_order_form" model="ir.ui.view">
+        <field name="name">sales_management.view.order.form</field>
+        <field name="model">sales_management.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="quanty"/>
+                            <field name="price"/>
+                            <field name="import_total"/>
+                        </group>
+                        <group>
+                            <field name="commercial_id"/>
+                            <field name="customer_id"/>
+                            <field name="image_order" widget="image" options="{'size':['',128]}"/>
+                            
+                        </group>
+                    </group>
+                  
+                </sheet>
+            </form>
+        </field>
+        
+    </record>
+
+    <record id="sales_management.view_order_tree" model="ir.ui.view">
+        <field name="name">sales_management.view.order.tree</field>
+        <field name="model">sales_management.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" optional="show"/>
+                <field name="date" optional="show"/>
+                <field name="quanty" optional="show"/>    
+                <field name="commercial_id" optional="show"/>
+                <field name="customer_id" optional="show"/>
+                <field name="image_order" optional="show" widget="image" options="{'size':['',60]}"/>
+            </tree>
+        </field>
+        
+    </record>
+
+    <record id="sales_management.view_order_search" model="ir.ui.view">
+        <field name="name">sales_management.view.order.search</field>
+        <field name="model">sales_management.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <!-- <field name="date"/> -->
+                <!-- <field name="quanty"/>     -->
+                <field name="commercial_id"/>
+                <field name="customer_id"/>
+            </search>
+        </field>
+        
+    </record>
+
+
+    <record id="sales_management.view_order_kanban" model="ir.ui.view">
+        <field name="name">sales_management.view.order.kanban</field>
+        <field name="model">sales_management.order</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="o_kanban_image">
+                            <img t-att-src="kanban_image('sales_management.order','image_order',record.id.raw_value)"/>
+                        </div>
+                        <div class="oe_kanban_details">
+                            <strong><field name="name"/></strong>
+                            <div>
+                                <field name="customer_id"/>
+                            </div>
+                            <div>
+                                <field name="date"/>
+                            </div>
+                        </div> 
+                    </div>
+                </t>
+                <!-- <field name="name"/>    
+                <field name="date"/>
+                <field name="quanty"/> 
+                <field name="commercial_id"/>
+                <field name="customer_id"/> -->
+            </kanban>
+        </field>
+        
+    </record>
+    <record id="sales_management.action_order" model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="res_model">sales_management.order</field>
+        <field name="view_mode">tree,form,search,kanban</field>
+        <field name="search_view_id" ref="sales_management.view_order_search"/>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+</odoo>
