@@ -1,0 +1,33 @@
+<odoo>
+    <menuitem id="menu_asistencia"
+              name="Asistencia Usuario"
+              sequence="2"
+              action="asistencia.asistencia_user"/>
+
+    <menuitem id="submenu_user"
+              name="Usuario"
+              parent="menu_asistencia"
+              action="asistencia.asistencia_user"
+              sequence="1"/>
+
+    <menuitem id="submenu_area"
+              name="Area"
+              parent="menu_asistencia"
+              action="asistencia_asistencia_area_trabajo"
+              sequence="3"/>
+
+    <menuitem id="submenu_jefe"
+              name="Jefe"
+              parent="menu_asistencia"
+              action="asistencia.asistencia_jefe_user"
+              sequence="2"/>
+
+    <menuitem id="submenu_informe"
+              name="Informe"
+              parent="menu_asistencia"
+              action="asistencia.action_wizard_asistencia_user"
+              sequence="4"/>
+
+
+
+</odoo>

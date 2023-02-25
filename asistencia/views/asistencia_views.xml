@@ -1,0 +1,164 @@
+<odoo>
+    <!--view asistencia.user Form-->
+    <record id="asistencia.view_asistencia_user_form"  model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.user</field>
+        <field name="model">asistencia.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1><b>Precision Smart Services</b></h1>
+                    <br></br>
+                    <group>
+                        <group>
+                            <field name="name" attrs="{'required':True}"/>
+                            <field name="lastname" attrs="{'required':True}"/>
+                            <field name="sexo" attrs="{'required':True}"/>
+                            <field name="dni" oattrs="{'required':True}"/>
+                            <field name="date_today"/>
+                            <field name="image_user" widget="image" options="{'size':['',180]}"/>
+                        </group>
+                        <group>
+                            <field name="sede" attrs="{'required':True}"/>
+                            <field name="date_inicio" attrs="{'required':True}"/>
+                            <field name="date_regreso" attrs="{'required':True}"/>
+                            <field name="jefe_id" attrs="{'required':True}"/>
+                            <field name="image_sustent" attrs="{'required':True}"
+                                    widget="image" options="{'size':['',180]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--View asistencia.user Tree-->
+    <record id="asistencia.view_asistencia_user_tree" model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.user</field>
+        <field name="model">asistencia.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="lastname" optional="hide"/>
+                <field name="dni"/>
+                <field name="sede" optional="hide"/>
+                <field name="date_inicio"/>
+                <field name="date_regreso"/>
+                <field name="jefe_id" optional="show"/>
+                <field name="jefe_id"/>
+                <field name="area_user"/>
+                <field name="date_today" optional="show"/>
+                
+            </tree>
+        </field>
+    </record>
+    
+    <!--view asistencia.user search-->
+    <record id="asistencia.view_asistencia_user_search" model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.user.search</field>
+        <field name="model">asistencia.user</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="jefe_id"/>
+            </search>
+        </field>
+    </record>
+    <!--view asistencia.user kanban-->
+    <record id="asistencia.view_asistencia_user_kanban" model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.user.kanban</field>
+        <field name="model">asistencia.user</field>
+        <field name="arch" type="xml">
+           <kanban>
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('asistencia.user','image_user',record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div>
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div>
+                                    <field name="jefe_id"/>
+                                </div>
+                                <div>
+                                    <field name="area_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+           </kanban>
+        </field>
+    </record>
+
+
+
+
+    <!--View asistencia.jefe.user Form-->
+    <record id="asistencia.view_asistencia_jefe_user_form"  model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.jefe.user.form</field>
+        <field name="model">asistencia.jefe_user</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1><b>Precision Smart Services</b></h1>
+                    <br></br>
+                    <group>
+                        <group>
+                            <field name="name" attrs="{'required':True}"/>
+                            <field name="lastname" attrs="{'required':True}"/>
+                            <field name="sexo" attrs="{'required':True}"/>
+                            <field name="dni" oattrs="{'required':True}"/>
+                        </group>
+                        <group>
+                            <field name="sede" attrs="{'required':True}"/>
+                            <field name="area_id" attrs="{'required':True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--View asistencia.jefe.user Tree-->
+    <record id="asistencia.view_asistencia_jefe_user_tree" model="ir.ui.view">
+        <field name="name">asistencia.view.asistencia.jefe.user.tree</field>
+        <field name="model">asistencia.jefe_user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="lastname" optional="hide"/>
+                <field name="dni"/>
+                <field name="sede" optional="hide"/>
+                <field name="sexo" optional="show"/>
+                <field name="area_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--view type action-->
+    <record id="asistencia.asistencia_user" model="ir.actions.act_window">
+        <field name="name">Operario</field>
+        <field name="res_model">asistencia.user</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="asistencia.asistencia_jefe_user" model="ir.actions.act_window">
+        <field name="name">Jefe</field>
+        <field name="res_model">asistencia.jefe_user</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="asistencia_asistencia_area_trabajo" model="ir.actions.act_window">
+        <field name="name">Area</field>
+        <field name="res_model">asistencia.area_trabajo</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+</odoo>

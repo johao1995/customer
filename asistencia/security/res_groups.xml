@@ -1,0 +1,10 @@
+<odoo>
+    <record  id="ir_module_category_asitencia_usuarios"  model="ir.module.category">
+        <field name="name">Asistencia</field>
+    </record>
+
+     <record  id="res_groups_asitencia"  model="res.groups">
+        <field name="name">Admisnitrador:Todo los privilegios</field>
+        <field name="category_id" ref="ir_module_category_asitencia_usuarios"/>
+    </record>
+</odoo>

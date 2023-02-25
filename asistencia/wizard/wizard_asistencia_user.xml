@@ -1,0 +1,33 @@
+<odoo>
+    <!--view asistencia.wizard.asistencia.user form-->
+    <record id="asistencia.asistencia_wizard_asistencia_user_form" model="ir.ui.view">
+        <field name="name">asistencia.asistencia.wizard.asistencia.user.form</field>
+        <field name="model">asistencia.wizard.asistencia.user</field>
+        <field name="arch" type="xml">
+            <form>
+                    <center><b><h1>Seleccionar Area Trabajo</h1></b></center>
+                    <group>
+                        <group>
+                            <field name="code_area" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="date_inicio"/>
+                            <field name="date_regreso"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Imprimir" name="check_report" type="object" class="oe_highlight"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--view asistencia.wizard.asistencia.user action-->
+    <record id="asistencia.action_wizard_asistencia_user" model="ir.actions.act_window">
+        <field name="name">Informe Trabajador</field>
+        <field name="res_model">asistencia.wizard.asistencia.user</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

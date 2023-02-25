@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!--Menu padre Movie-->
+    <menuitem id="app_movies.menu_movie"
+              name="Pelicula"
+              action=""/>
+    <!--Submenu-->
+    <menuitem id="app_movies.submenu_movie"
+              name="Movie"
+              parent="app_movies.menu_movie"
+              action="app_movies.action_app_movies_movie"/>
+
+    <menuitem id="app_movies.submenu_ajustes"
+              name="Ajustes"
+              parent="app_movies.menu_movie"
+              action=""/>
+
+    <menuitem id="app_movies.submenu_director"
+              name="Director"
+              parent="app_movies.menu_movie"
+              action="app_movies.action_app_movies_director"/>
+
+    <menuitem id="app_movies.submenu_categoria"
+              name="Categoria"
+              parent="app_movies.menu_movie"
+              action="app_movies.action_app_movies_category"/>
+</odoo>
