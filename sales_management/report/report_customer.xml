@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_customer">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <center>
+                        <h1>Clientes</h1>
+                        <h1><t t-esc="date"/></h1>
+                        <br/>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Apellido1</td>
+                                    <td>Apellido2</td>
+                                    <td>Categoria</td>
+                                    <td>Ciudad</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="c">
+                                    <tr>
+                                        <td t-esc="c.name"/>
+                                        <td t-esc="c.apellido1"/>
+                                        <td t-esc="c.apellido2"/>
+                                        <td t-esc="c.category"/>
+                                        <td t-esc="c.city"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+            </t>
+        </t>
+    </template>
+    
+    <record id="sales_management.action_report_customer" model="ir.actions.report">
+        <field name="name">Informe Customers</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="model">sales_management.customer</field>
+        <field name="report_name">sales_management.report_customer</field>
+        <!-- <field name="binding_type">action</field> -->
+        <field name="binding_model_id" ref="model_sales_management_customer"/>
+        <field name="print_report_name">'Informe de Customers'</field>
+    </record>
+
+    <menuitem id="submenu_report"
+              name="Informe"
+              parent="menu_manegement_sales"
+              sequence="4"/>
+
+     <menuitem id="submenu_report_customer"
+              name="Cliente"
+              parent="submenu_report"
+              action="sales_management.action_report_customer"
+              sequence="1"/>
+</odoo>

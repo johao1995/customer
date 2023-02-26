@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_order">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <center>
+                        <h1>Pedidos</h1>
+                        <h1><t t-esc="date"/></h1>
+                        <br/>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Fecha</td>
+                                    <td>Cantidad</td>
+                                    <td>Cantidad</td>
+                                    <td>Comercial</td>
+                                    <td>Cliente</td>
+                                    <td>Precio</td>
+                                    <td>Total</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td t-esc="o.name"/>
+                                        <td t-esc="o.date"/>
+                                        <td t-esc="o.quanty"/>
+                                        <td t-esc="o.commercial_id.name"/>
+                                        <td t-esc="o.customer_id.name"/>
+                                        <td t-esc="o.price"/>
+                                        <td t-esc="o.import_total"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+            </t>
+        </t>
+    </template>
+    
+    <record id="sales_management.action_report_order" model="ir.actions.report">
+        <field name="name">Informe Orders</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="model">sales_management.order</field>
+        <field name="report_name">sales_management.report_order</field>
+        <field name="binding_type">action</field>
+        <field name="binding_model_id" ref="model_sales_management_order"/>
+        <field name="print_report_name">'Informe de Ordes'</field>
+    </record>
+</odoo>

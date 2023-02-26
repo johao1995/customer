@@ -12,6 +12,9 @@
         'views/menu.xml',
         #security
         'security/res_groups.xml',
-        'security/ir_model_access.xml'
+        'security/ir_model_access.xml',
+        #report
+        'report/report_order.xml',
+        'report/report_customer.xml'
     ]
 }

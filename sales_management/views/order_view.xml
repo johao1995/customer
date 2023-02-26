@@ -60,6 +60,16 @@
         
     </record>
 
+    <record id="sales_management.view_order_calendar" model="ir.ui.view">
+        <field name="name">sales_management.view.order.calendar</field>
+        <field name="model">sales_management.order</field>
+        <field name="arch" type="xml">
+            <calendar date_start="date" mode="month">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
 
     <record id="sales_management.view_order_kanban" model="ir.ui.view">
         <field name="name">sales_management.view.order.kanban</field>
@@ -95,7 +105,7 @@
     <record id="sales_management.action_order" model="ir.actions.act_window">
         <field name="name">Order</field>
         <field name="res_model">sales_management.order</field>
-        <field name="view_mode">tree,form,search,kanban</field>
+        <field name="view_mode">tree,form,search,kanban,calendar</field>
         <field name="search_view_id" ref="sales_management.view_order_search"/>
         <field name="type">ir.actions.act_window</field>
     </record>
