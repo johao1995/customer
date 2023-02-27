@@ -9,9 +9,9 @@
         <field name="perm_unlink">1</field>
     </record>
 
-     <record id="ir_model_access_asistencia_jefe_user"  model="ir.model.access">
-        <field name="name">ir.model.access.asistencia.jefe_user</field>
-        <field name="model_id" ref="asistencia.model_asistencia_jefe_user"/>
+     <record id="ir_model_access_asistencia_jefe_usuer"  model="ir.model.access">
+        <field name="name">ir.model.access.asistencia.jefe_usuer</field>
+        <field name="model_id" ref="asistencia.model_asistencia_jefe_usuer"/>
         <field name="group_id" ref="res_groups_asitencia"/>
         <field name="perm_read">1</field>
         <field name="perm_write">1</field>
@@ -23,16 +23,6 @@
      <record id="ir_model_access_asistencia_area_trabajo"  model="ir.model.access">
         <field name="name">ir.model.access.asistencia.area.trabajo</field>
         <field name="model_id" ref="asistencia.model_asistencia_area_trabajo"/>
-        <field name="group_id" ref="res_groups_asitencia"/>
-        <field name="perm_read">1</field>
-        <field name="perm_write">1</field>
-        <field name="perm_create">1</field>
-        <field name="perm_unlink">1</field>
-    </record>
-
-    <record id="ir_model_access_asistencia_wizard_asistencia_user"  model="ir.model.access">
-        <field name="name">ir.model.access.asistencia.wizard.asistencia.user</field>
-        <field name="model_id" ref="asistencia.model_asistencia_wizard_asistencia_user"/>
         <field name="group_id" ref="res_groups_asitencia"/>
         <field name="perm_read">1</field>
         <field name="perm_write">1</field>

@@ -1,9 +1,6 @@
 from odoo import models,fields,api
 from odoo.exceptions import ValidationError
-from datetime import datetime
-
 import logging
-# Model Abstract
 class Information(models.AbstractModel):
     _name="asistencia.information"
 
@@ -20,20 +17,15 @@ class Information(models.AbstractModel):
         ('003','Lima'),
     ],default='001')
     
-    
 
 class User(models.Model):
-    _name="asistencia.user"
     _inherit="asistencia.information"
+    _name="asistencia.user"
     _description="Informacio Usuario"
 
-    date_inicio=fields.Date(string="Fecha Salida")
-    date_regreso=fields.Date(string="Fecha Retorno")
+    date_inicio=fields.Datetime(string="Fecha Salida")
+    date_regreso=fields.Datetime(string="Fecha Retorno")
     image_sustent=fields.Binary(string="Archivo")
-    date_today=fields.Date(string="Fecha Actual",default=datetime.now())
-    jefe_id=fields.Many2one(string="Jefe",comodel_name="asistencia.jefe_user")
-    area_user=fields.Char(string="Area",related="jefe_id.area_id.name")
-    image_user=fields.Binary(string="Imagen")
 
     @api.constrains("dni")
     def constrains_dni(self):

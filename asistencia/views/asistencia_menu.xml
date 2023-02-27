@@ -21,13 +21,4 @@
               parent="menu_asistencia"
               action="asistencia.asistencia_jefe_user"
               sequence="2"/>
-
-    <menuitem id="submenu_informe"
-              name="Informe"
-              parent="menu_asistencia"
-              action="asistencia.action_wizard_asistencia_user"
-              sequence="4"/>
-
-
-
 </odoo>

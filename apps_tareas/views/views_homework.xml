@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_homework_form" model="ir.ui.view">
+        <field name="name">view.homework.form</field>
+        <field name="model">apps.tareas.homework</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Tarea">
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group string="Estado">
+                            <field name="state_materia"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_homework_tree" model="ir.ui.view">
+        <field name="name">view.homework.tree</field>
+        <field name="model">apps.tareas.homework</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="state_materia" widget="badge" decoration-info="state_materia == 'iniciado'"
+                       decoration-danger="state_materia == 'pendiente'" decoration-warning="state_materia == 'finalizado'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_homework_action" model="ir.actions.act_window">
+        <field name="name">Tarea</field>
+        <field name="res_model">apps.tareas.homework</field>
+        <field name="view_mode">tree,form,kanban</field>
+        
+    </record>
+</odoo>

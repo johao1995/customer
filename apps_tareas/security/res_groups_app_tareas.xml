@@ -1,0 +1,11 @@
+<odoo>
+    <record id="ir_module_category_apps_tareas" model="ir.module.category">
+        <field name="name">apps_tareas</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="group_apps_taras_homework" model="res.groups">
+        <field name="name">Administrador:Todo los Permisos</field>
+        <field name="category_id" ref="ir_module_category_apps_tareas"/>
+    </record>
+</odoo>

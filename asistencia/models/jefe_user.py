@@ -3,10 +3,8 @@ from odoo.exceptions import ValidationError
 import logging
 
 class JefeUser(models.Model):
-    _name="asistencia.jefe_user"
+    _name="asistencia.jefe_usuer"
     _inherit="asistencia.information"
-
-    area_id=fields.Many2one(string="Area",comodel_name="asistencia.area_trabajo")
 
     @api.constrains("dni")
     def constrains_dni(self):
@@ -16,9 +14,9 @@ class JefeUser(models.Model):
 
     @api.model
     def create(self,data):
-        
-        user=self.env["asistencia.jefe_user"].search([('name','=',data['name'])])
-        
+        logging.info(data)
+        user=self.env["asistencia.jefe_usuer"].search([('name','=',data['name'])])
+        logging.info(user)
         if user.name==data["name"]:
             raise ValidationError(f"Error El usuario {user.name} existe")
         
