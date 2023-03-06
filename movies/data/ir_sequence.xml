@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_sequence_movies_presupuesto_factura"  model="ir.sequence">
+        <field name="name">F001-Pelicula</field>
+        <field name="implementation">no_gap</field>
+        <field name="prefix">F001-</field>
+        <field name="code">movies.presupuesto</field>
+        <field name="active">1</field>
+        <field name="padding">8</field>
+        <field name="number_increment">1</field>
+        <field name="number_next_actual">1</field>
+    </record>
+</odoo>

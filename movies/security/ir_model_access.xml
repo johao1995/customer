@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="ir_model_access_movies_presupuesto_admin" model="ir.model.access">
-        <field name="name">ir.model.access.movies.presupuesto</field>
+        <field name="name">ir.model.access.movies.presupuesto.admin</field>
         <field name="model_id" ref="movies.model_movies_presupuesto"/>
         <field name="group_id" ref="res_groups_movie"/>
         <field name="perm_read">1</field>
@@ -13,6 +13,16 @@
     <record id="ir_model_access_movies_genero_admin" model="ir.model.access">
         <field name="name">ir.model.access.movies.genero.admin</field>
         <field name="model_id" ref="movies.model_movies_genero"/>
+        <field name="group_id" ref="res_groups_movie"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_movies_category_operarios_admin" model="ir.model.access">
+        <field name="name">ir.model.access.movies.category.operarios.admin</field>
+        <field name="model_id" ref="movies.model_movies_category_operarios"/>
         <field name="group_id" ref="res_groups_movie"/>
         <field name="perm_read">1</field>
         <field name="perm_write">1</field>

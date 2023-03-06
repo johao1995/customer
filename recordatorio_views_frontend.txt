@@ -14,6 +14,9 @@ ojo el campo tiene que llamarse obligatoriamente state=fields.Selection(selectio
 
 -En resumen, la clase "o_row" se utiliza para definir el estilo de las filas en las tablas de la interfaz de usuario de Odoo 16. Esta clase se utiliza en varias plantillas de Odoo para definir el estilo de las filas que muestran los registros y los campos en la vista de lista y la vista de formulario.
 
+En resumen, self.env.ref('aca_se pone external_id.id_record') -->ref('movies.data_director')
+se utiliza en Odoo 16 para obtener un registro específico de la base de datos de Odoo utilizando su identificador único xml_id.
+
 attributos de vistas
 optional="show" -->mostrar se usa para vistas tree
 optional="hide"--->ocultar se usa para vistas tree

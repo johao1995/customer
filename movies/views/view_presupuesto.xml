@@ -6,13 +6,15 @@
         <field name="name">Presupuesto</field>
         <field name="model">movies.presupuesto</field>
         <field name="arch" type="xml">
-            <form>
+            <form>  
                 <header>
                         <button string="Borrador" name="Borrador" type="object" class="oe_highlight"/>
                         <button string="Aprobado" name="Aprobado" type="object" class="oe_highlight" states="borrador"/>
                         <field name="state" widget="statusbar"/>
                 </header>
-
+                <div class="alert alert-info">
+                    <field name="name_clasification" attrs="{'readonly':True}"/>
+                </div>
                 <sheet>
                     <widget name="web_ribbon" title="Aprobado" bg_color="bg-danger" attrs="{'invisible':[('state','=','borrador')]}"/>
                         <field name="image" widget="image" class="oe_avatar" style=""/>
@@ -39,7 +41,10 @@
                         <field name="description"/>
                         <group>
                             <field name="director_id"/>
+                            <field name="category_director_id"/>
                             <field name="link_trailer" widget="url"/>
+                            <field name="factura" readonly="1"/>
+                            <field name="date_aprob" attrs="{'readonly':True}"/>
                         </group>
                         <group>
                             <field name="active" widget="boolean_toggle"/>

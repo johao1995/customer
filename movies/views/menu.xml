@@ -23,5 +23,14 @@
               parent="submenu_modelos"
               action="movies.action_movies_genero"
               sequence="2"/>
+
+    <menuitem id="submenu_category_operarios"
+              name="Categoria"
+              parent="submenu_modelos"
+              action="movies.action_movies_category_operarios"
+              sequence="3"/>
+    
+
+ 
     
 </odoo>

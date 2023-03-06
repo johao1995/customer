@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="movies.movies_category_operarios_director" model="movies.category.operarios">
+        <field name="name">Director</field>
+    </record>
+    <record id="movies.movies_category_operarios_actor" model="movies.category.operarios">
+        <field name="name">Actor</field>
+    </record>
+    
+</odoo>

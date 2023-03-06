@@ -12,8 +12,11 @@
         #vistas
         'views/view_presupuesto.xml',
         'views/view_genero.xml',
+        'views/view_categoria_operarios.xml',
         'views/menu.xml',
         #data
-        'data/genero.xml'
+        'data/genero.xml',
+        'data/categoria_operarios.xml',
+        'data/ir_sequence.xml'
     ]
 }
