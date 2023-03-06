@@ -1,0 +1,51 @@
+widget=EFectos VIsuales
+<widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
+<field name="puntuacion" widget="percentpie"/>
+<fiel name="name_campo" widget="boolean_toggle"/>
+<field name="name_campo" widget="url"/>
+<field name="name_campo" states="borrador"/> --> Le estoy diciendo que el field sera visible cuando el estado del state_presupuesto este en borrador 
+ejemplo:
+<field name="state"/>--> actualmente esta en estado borrador
+ojo el campo tiene que llamarse obligatoriamente state=fields.Selection(selection=[('aprobado','Aprobado'),('borrador','Borrador')] , por que si no , el atributo states="borrador" no funcionara
+
+-En resumen, la clase "oe_avatar" se utiliza para definir la apariencia de las imágenes de perfil de usuario y los iconos de menú en la interfaz de usuario de Odoo 16. Esta clase se utiliza en la plantilla base "web.assets_backend" y en la plantilla "web.menu" para definir la apariencia de la barra lateral y los menús de la interfaz de usuario.
+
+-En resumen, la clase "oe_title" se utiliza para definir el estilo de los títulos en la interfaz de usuario de Odoo 16. Esta clase se utiliza en varias plantillas de Odoo para definir el estilo de los títulos de sección y los títulos de registro en la vista de formulario y la vista de lista.
+
+-En resumen, la clase "o_row" se utiliza para definir el estilo de las filas en las tablas de la interfaz de usuario de Odoo 16. Esta clase se utiliza en varias plantillas de Odoo para definir el estilo de las filas que muestran los registros y los campos en la vista de lista y la vista de formulario.
+
+attributos de vistas
+optional="show" -->mostrar se usa para vistas tree
+optional="hide"--->ocultar se usa para vistas tree
+
+decoraciones 
+widget="badge"
+decoration-bf-->negrita
+decoration-it-->cursiva
+decoration-danger-->rojo
+decoration-info-->azul claro
+decoration-muted-->gris claro
+decoration-success-->verde
+decoration-warning-->mostaza
+
+condiciones con estas decoraciones 
+ejemplo
+<field name="" decoration-info=" field == 'aprobado'"
+
+
+options
+Atributos de campo de view
+domain=Filtracion --> <field name="category_id" domain=[('','',')]
+context=pasa valor por defecto
+attrs=invisible,readonly,required ---> <field name="" attrs="{'invisible':True}"
+options=no_quick_create-->no crear no_create_edit-->no crear y eitar  no_open-->no te permite abrir un selector o opcion
+<field name="field" options="{'no_create':True}"
+
+
+Tipos de Monedas
+creas un campo para ver el tipo de moneda que seleccionaras
+currency_id=fields.Many2one(comodel_name="res.currency")
+
+ahora en la view form
+
+<field name="amount" widget="monetary" options="{'currency_field':'currency_id'}"
