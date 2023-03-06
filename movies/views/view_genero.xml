@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+     <record id="movies.action_movies_genero" model="ir.actions.act_window">
+        <field name="name">Genero</field>
+        <field name="res_model">movies.genero</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

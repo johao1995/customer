@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="ir_module_category_movie" model="ir.module.category">
+        <field name="name">Movies</field>
+    </record>
+
+    <record id="res_groups_movie" model="res.groups">
+        <field name="name">Administrador:Todos los privilegios</field>
+        <field name="category_id" ref="ir_module_category_movie"/>
+    </record>
+
+</odoo>

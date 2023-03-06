@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+
+    <menuitem id="menu_movie"
+              name="movies"
+              parent=""
+              sequence="1"/>
+
+    <menuitem id="submenu_modelos"
+              name="Mis Modelos"
+              parent="menu_movie"
+              sequence="1"/>
+
+    <menuitem id="submenu_presupuesto"
+              name="Presupuesto"
+              parent="submenu_modelos"
+              action="movies.action_movies_presupuesto"
+              sequence="1"/>
+
+    <menuitem id="submenu_genero"
+              name="Genero"
+              parent="submenu_modelos"
+              action="movies.action_movies_genero"
+              sequence="2"/>
+    
+</odoo>

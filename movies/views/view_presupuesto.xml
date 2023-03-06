@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--view form-->
+    <record id="movies.action_movies_presupuesto_form" model="ir.ui.view">
+        <field name="name">Presupuesto</field>
+        <field name="model">movies.presupuesto</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                        <button string="Borrador" name="Borrador" type="object" class="oe_highlight"/>
+                        <button string="Aprobado" name="Aprobado" type="object" class="oe_highlight" states="borrador"/>
+                        <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <widget name="web_ribbon" title="Aprobado" bg_color="bg-danger" attrs="{'invisible':[('state','=','borrador')]}"/>
+                        <field name="image" widget="image" class="oe_avatar" style=""/>
+                        <div class="oe_title">
+                            <div class="o_row">
+                                <field name="name" placeholder="Ingrese Pelicula"/>
+                                <field name="puntuacion" widget="percentpie"/>
+                                <field name="puntuacion2"/>
+                            </div>
+                            
+                            <div class="o_row">
+                                    <field name="clasification"/>
+                                    <i class="fa-solid fa-circle" 
+                                    attrs="{'invisible':[('clasification','=',False),('date_streno','=',False)]}"/>
+                                    <field name="date_streno"/>
+                            </div>
+                           
+                            <div class="o_row">
+                                <field name="genero_ids" widget="many2many_tags"/>
+                            </div>
+                        </div>
+
+                    <group string="Datos Ṕrincipales">
+                        <field name="description"/>
+                        <group>
+                            <field name="director_id"/>
+                            <field name="link_trailer" widget="url"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="is_book" widget="boolean_toggle"/>
+                            <field name="book_pdf"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--view tree-->
+    <record id="movies.action_movies_presupuesto_tree" model="ir.ui.view">
+        <field name="name">Presupuesto</field>
+        <field name="model">movies.presupuesto</field>
+
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_streno"/>
+                <field name="genero_ids" widget="many2many_tags"/>
+                <field name="director_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="movies.action_movies_presupuesto" model="ir.actions.act_window">
+        <field name="name">Presupuesto</field>
+        <field name="res_model">movies.presupuesto</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_id" ref="movies.action_movies_presupuesto_form"/> -->
+    </record>
+</odoo>

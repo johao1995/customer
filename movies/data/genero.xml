@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="movies.genero_comedia" model="movies.genero">
+        <field name="name">Comedia</field>
+    </record>
+     <record id="movies.genero_drama" model="movies.genero">
+        <field name="name">Drama</field>
+    </record>
+     <record id="movies.genero_romance" model="movies.genero">
+        <field name="name">Romance</field>
+    </record>
+</odoo>
