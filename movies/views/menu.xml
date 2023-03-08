@@ -29,6 +29,12 @@
               parent="submenu_modelos"
               action="movies.action_movies_category_operarios"
               sequence="3"/>
+
+    <menuitem id="submenu_producto"
+              name="Producto"
+              parent="menu_movie"
+              action="movies.action_movies_product"
+              sequence="2"/>
     
 
  

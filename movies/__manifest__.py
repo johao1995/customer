@@ -13,6 +13,7 @@
         'views/view_presupuesto.xml',
         'views/view_genero.xml',
         'views/view_categoria_operarios.xml',
+        'views/view_product.xml',
         'views/menu.xml',
         #data
         'data/genero.xml',

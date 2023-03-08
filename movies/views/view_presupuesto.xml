@@ -8,12 +8,12 @@
         <field name="arch" type="xml">
             <form>  
                 <header>
-                        <button string="Borrador" name="Borrador" type="object" class="oe_highlight"/>
+                        <button string="Borrador" name="Borrador" type="object" class="oe_highlight" states="aprobado"/>
                         <button string="Aprobado" name="Aprobado" type="object" class="oe_highlight" states="borrador"/>
                         <field name="state" widget="statusbar"/>
                 </header>
                 <div class="alert alert-info">
-                    <field name="name_clasification" attrs="{'readonly':True}"/>
+                    <field name="name_clasification" attrs="{'readonly':True}" force_save="1"/>
                 </div>
                 <sheet>
                     <widget name="web_ribbon" title="Aprobado" bg_color="bg-danger" attrs="{'invisible':[('state','=','borrador')]}"/>
@@ -52,6 +52,30 @@
                             <field name="book_pdf"/>
                         </group>
                     </group>
+
+                    <notebook>
+                        <page string="Presupuesto">
+                            <group>
+                                <group>
+                                    <field name="date_creation" readonly="1" force_save="1"/>
+                                    <field name="date_aprob" readonly="1" force_save="1"/>
+                                    <field name="factura"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Otra Informacion">
+                            <field name="comment" placeholder="Ingrese Comentario"/>
+                        </page>
+                    </notebook>
+                    <field name="detail_id">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="quanty"/>
+                            <field name="price_uni"/>
+                            <field name="importe"/>
+                        </tree>
+                    </field>
                 </sheet>
             </form>
         </field>

@@ -35,7 +35,10 @@ class Presupuesto(models.Model):
     ],default="borrador")
     name_clasification=fields.Char()
     date_aprob=fields.Date(string="Fecha Aprobado")
+    date_creation=fields.Date(string="Fecha Creacion")
     factura=fields.Char(string="Factura")
+    comment=fields.Html(string="Comentario")
+    detail_id=fields.One2many(string="Detalles",comodel_name="movies.detail.presupuesto",inverse_name="presupuesto_id")
 
     @api.onchange('clasification')
     def onchange_name_clasification(self):
@@ -65,4 +68,5 @@ class Presupuesto(models.Model):
         obj_factura=self.env['ir.sequence'].next_by_code('movies.presupuesto')
         print(obj_factura)
         value['factura']=obj_factura
+        value['date_creation']=date.today()
         return super(Presupuesto,self).create(value)

@@ -29,4 +29,26 @@
         <field name="perm_create">1</field>
         <field name="perm_unlink">1</field>
     </record>
+
+    <record id="ir_model_access_movies_detail_presupuesto_admin" model="ir.model.access">
+        <field name="name">ir.model.access.movies.detail.presupuesto.admin</field>
+        <field name="model_id" ref="movies.model_movies_detail_presupuesto"/>
+        <field name="group_id" ref="res_groups_movie"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_movies_product_admin" model="ir.model.access">
+        <field name="name">ir.model.access.movies.product.admin</field>
+        <field name="model_id" ref="movies.model_movies_product"/>
+        <field name="group_id" ref="res_groups_movie"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+
 </odoo>
