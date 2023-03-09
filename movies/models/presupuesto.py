@@ -39,6 +39,20 @@ class Presupuesto(models.Model):
     factura=fields.Char(string="Factura")
     comment=fields.Html(string="Comentario")
     detail_id=fields.One2many(string="Detalles",comodel_name="movies.detail.presupuesto",inverse_name="presupuesto_id")
+    currency_id=fields.Many2one(string="Moneda",comodel_name="res.currency",default=lambda self:self.env.company.currency_id.id)
+    importe_base=fields.Monetary(string="Importe Base",compute="compute_total")
+    impuesto=fields.Monetary(string="Impuesto",compute="compute_total")
+    total=fields.Monetary(string="Total",compute="compute_total")
+
+    def compute_total(self):
+        importe=0
+        for rec in self:
+            for i  in rec.detail_id:
+                importe+=i.importe
+        
+            rec.importe_base=importe
+            rec.impuesto=rec.importe_base*0.18
+            rec.total=rec.importe_base+rec.impuesto
 
     @api.onchange('clasification')
     def onchange_name_clasification(self):
@@ -66,6 +80,7 @@ class Presupuesto(models.Model):
     @api.model
     def create(self,value):
         obj_factura=self.env['ir.sequence'].next_by_code('movies.presupuesto')
+
         print(obj_factura)
         value['factura']=obj_factura
         value['date_creation']=date.today()
