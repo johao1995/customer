@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- <record id="university.tree_university_docente" model="ir.ui.view">
+        <field name="name">university.tree.university.docente</field>
+        <field name="model">university.docente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="document"/>
+                <field name="docente_ids"/>
+                <field name="speciality_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="university.form_university_docente" model="ir.ui.view">
+        <field name="name">university.form.university.docente</field>
+        <field name="model">university.docente</field>
+        <field name="arch" type="xml">
+            <form>
+            </form>
+        </field>
+    </record> -->
+
+    <record id="university.action_university_docente" model="ir.actions.act_window">
+        <field name="name">Docente</field>
+        <field name="res_model">university.docente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

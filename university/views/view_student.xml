@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="university.tree_university_student" model="ir.ui.view">
+        <field name="name">university.tree.university.student</field>
+        <field name="model">university.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="image" widget="image" options="{'size':[30,30]}"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="document"/>
+                <field name="docente_ids" widget="many2many_tags"/>
+                <field name="speciality_id"/>
+                <field name="active"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="university.form_university_student" model="ir.ui.view">
+        <field name="name">university.form.university.student</field>
+        <field name="model">university.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <field name="image" widget="image"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="document"/>
+                        </group>
+                        <group>
+                            <field name="docente_ids" widget="many2many_tags"/>
+                            <field name="speciality_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="university.action_university_student" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">university.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

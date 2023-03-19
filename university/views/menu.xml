@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_univsersity"
+              name="University"
+              sequence="1"
+              action=""/>
+
+    <menuitem id="submenu_student"
+              name="Student"
+              parent="menu_univsersity"
+              sequence="1"
+              action="university.action_university_student"/>
+    
+    <menuitem id="submenu_speciality"
+              name="Speciality"
+              parent="menu_univsersity"
+              sequence="2"
+              action="university.action_university_speciality"/>
+    
+    <menuitem id="submenu_docente"
+              name="Docente"
+              parent="menu_univsersity"
+              sequence="3"
+              action="university.action_university_docente"/>
+</odoo>

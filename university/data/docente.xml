@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="docente_Marco_Antonio" model="university.docente">
+        <field name="name">Marco Antonio Maldonado Leon</field>
+        <field name="code">MA</field>
+        
+    </record>
+
+    <record id="docente_Andres_Hurtado" model="university.docente">
+         <field name="name">Andres Hurtado Jarmiento Saca</field>
+        <field name="code">AH</field>
+    </record>
+
+    <record id="docente_Buendia_Dolores" model="university.docente">
+        <field name="name">Buendia Dolores Caceres Manuel</field>
+        <field name="code">BD</field>
+    </record>
+    
+</odoo>
