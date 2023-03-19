@@ -9,7 +9,7 @@
               name="Student"
               parent="menu_univsersity"
               sequence="1"
-              action="university.action_university_student"/>
+              action="university.action_university_students"/>
     
     <menuitem id="submenu_speciality"
               name="Speciality"
