@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_module_category_university" model="ir.module.category">
+        <field name="name">University</field>
+    </record>
+
+    <record id="res_groups_administrador" model="res.groups">
+        <field name="name">Administrador:Todos los permisos</field>
+        <field name="category_id" ref="ir_module_category_university"/>
+    </record>
+    
+</odoo>

@@ -12,7 +12,10 @@
         'views/view_students.xml',
         'views/menu.xml',
         #data
-        'data/docente.xml'
+        'data/docente.xml',
+        #security
+        'security/res_groups.xml',
+        'security/ir_model_access.xml'
     ],
     'qweb':[]
 }

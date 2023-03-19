@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_model_access_university_students" model="ir.model.access">
+        <field name="name">ir.model.access.university.students</field>
+        <field name="model_id" ref="university.model_university_students"/>
+        <field name="group_id" ref="res_groups_administrador"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_university_speciality" model="ir.model.access">
+        <field name="name">ir.model.access.university.speciality</field>
+        <field name="model_id" ref="university.model_university_speciality"/>
+        <field name="group_id" ref="res_groups_administrador"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="ir_model_access_university_docente" model="ir.model.access">
+        <field name="name">ir.model.access.university.docente</field>
+        <field name="model_id" ref="university.model_university_docente"/>
+        <field name="group_id" ref="res_groups_administrador"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+</odoo>
