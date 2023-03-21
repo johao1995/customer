@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_model_access_school_student" model="ir.model.access">
+        <field name="name">ir.model.access.school.student</field>
+        <field name="model_id" ref="school.model_school_student"/>
+        <field name="group_id" ref="res_groups_usuario_basico"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+     <record id="ir_model_access_school_teacher" model="ir.model.access">
+        <field name="name">ir.model.access.school.teacher</field>
+        <field name="model_id" ref="school.model_school_teacher"/>
+        <field name="group_id" ref="res_groups_usuario_basico"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+     <record id="ir_model_access_school_subject" model="ir.model.access">
+        <field name="name">ir.model.access.school.subject</field>
+        <field name="model_id" ref="school.model_school_subject"/>
+        <field name="group_id" ref="res_groups_usuario_basico"/>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+  
+</odoo>

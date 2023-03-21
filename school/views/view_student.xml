@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="school.view_school_student_form" model="ir.ui.view">
+        <field name="name">school.view.school.student_form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="birth_date"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                            <field name="final_exam_grade"/>
+                        </group>
+                    </group>
+                    <field name="subject_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="school.action_school_student" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+</odoo>
