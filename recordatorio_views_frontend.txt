@@ -52,3 +52,15 @@ currency_id=fields.Many2one(comodel_name="res.currency")
 ahora en la view form
 
 <field name="amount" widget="monetary" options="{'currency_field':'currency_id'}"
+  <record id="ir_rule_user_free_own_information_university_student" model="ir.rule">
+        <field name="name">Informacion Propia Student</field>
+        <field name="model_id" ref="university.model_university_student"/>
+        <field name="groups" eval="[(4,ref('res_groups_university_user_free'))]"/><!--asociando esta regla a un grupo existente-->
+        <field name="domain_force">
+            [('create_uid','=',user.id)]<!--create_uid es el di que por defecto se agrega a las tablas de odoo para de este modo saber que usuario esta registrando,creando,eliminado informacion-->
+        </field>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+ </record

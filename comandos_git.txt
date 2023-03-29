@@ -1,0 +1,20 @@
+git init --> creando nuestro repositorio local
+
+git config user.name ''
+git config user.email ''
+
+git remote add origin "https://github.com/johao1995/Dev.git" ---> con esto comunicamos a nuestro repositorio local con el repositorio remoto
+git status --> decime el estado del git el color rojo(nodice que todavia no ha sido comiteado)
+git add archivo_deseado  --> deseo pasar de mi escritorio a mi repositorio local y pasa en color verde al hacer el git status
+
+git commit -m 'modulo' --> con esto agrego el archivo de forma definitiva 
+
+git push -u origin master --->master es la rama que por defecto usa git ,origin es el nombre del repositorio creado que cree al linkear con el repositorio 
+remoto(git remote add origin "https://github.com/johao1995/Dev.git") y master es el nombre de la rama que deseamos enviar al git remoto
+
+git clone "https://github.com/johao1995/Dev.git" --> copia o clonar todo el repositorio desde cero
+
+git pull origin master "https://github.com/johao1995/Dev.git" ---> trae o clona los cambios del repositorio y ya no trae todo el repositorio a diferencia del git clone
+es decir permite actualizar nuestro repositorio local y trae los nuevos cambios del repositorio remoto 
+
+
