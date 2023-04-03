@@ -64,3 +64,7 @@ ahora en la view form
         <field name="perm_create">1</field>
         <field name="perm_unlink">1</field>
  </record
+ 
+ #campos compute
+ los campos que tengan como atributo compute, en la base datos no se almacenan pero si deseas que se almacene se usa el attributo store=True
+ quanty=fields.Float(compute='compute_total',store=True)
