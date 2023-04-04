@@ -86,3 +86,23 @@ ahora en la view form
             name="{}(+{})".format(self.name,self.phone)
             result.append((user.id,name))-->Necesita el Id del register y luego va el nombre que deseas que aparesca
         return result
+        
+        
+Tipos de excepciones en Odoo
+Las excepciones se utilizan en programación para alertar de situaciones anómalas que suceden durante la ejecución de una aplicación o programa. En Odoo se utilizan con el mismo objetivo y la manera de implementarlas es utilizando la palabra reservada raisedel lenguaje Python. La forma en la que se presentan al usuario es mediante una ventana en la parte superior del navegador en la que se muestra el tipo de excepción y el mensaje asociado.
+
+Veamos ahora los diferenrtes tipos de excepciones que podemos manejar en Odoo:
+
+odoo.exceptions.AccessDenied: Se utiliza cuando se debe denegar el acceso a una determinada parte de la aplicación cuando los datos que se esperan no son los obtenidos.
+
+odoo.exceptions.AccessError: Se utiliza para mostrar que el usuario en sesión no dispone de accesos de algún tipo a algún recurso.
+
+odoo.exceptions.CacheMiss: Se emplea cuando se trata de acceder a un registro en caché que ya no existe.
+
+odoo.exceptions.MissingError: Se utiliza para denotar que se trata de modificar un registro que ya se encuentra borrado con anterioridad.
+
+odoo.exceptions.RedirectWarning: Se utiliza para, además de mostrar un mensaje al usuario (advertencia), redirigir a otra vista por medio de una acción. La función recibe dos parámetros: el ID de la acción a la que tratamos de redirigir al usuario y el mensaje que se quiere mostrar al usuario.
+
+odoo.exceptions.UserError: Se emplea cuando un usuario trata de agregar un valor a un registro y el estado del registro no es el correcto porque no se cumplen ciertas condiciones.
+
+odoo.exceptions.ValidationError: Se aplica cuando las condiciones que afectan a un determinado registro fallan.
