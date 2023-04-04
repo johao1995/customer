@@ -68,3 +68,21 @@ ahora en la view form
  #campos compute
  los campos que tengan como atributo compute, en la base datos no se almacenan pero si deseas que se almacene se usa el attributo store=True
  quanty=fields.Float(compute='compute_total',store=True)
+ 
+ Sentencia SQL
+  def filter_date(self):
+        fuel_litres=100
+        sql="SELECT * FROM test_car WHERE fuel_litres<{}".format(fuel_litres)
+        self.env.cr.execute(sql)
+        result=self.env.cr.fetchall()---> Transforma el resultado en un array de tuplas
+         result=self.env.cr.dictfetchall()---> Transforma el resultado en un array de diccionarios
+        print(result)
+ 
+ #Sobreescribiendo el name_get(self) que viene por defecto
+ 
+    def name_get(self):
+        result=[]
+        for user in self:
+            name="{}(+{})".format(self.name,self.phone)
+            result.append((user.id,name))-->Necesita el Id del register y luego va el nombre que deseas que aparesca
+        return result
