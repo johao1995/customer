@@ -106,3 +106,6 @@ odoo.exceptions.RedirectWarning: Se utiliza para, además de mostrar un mensaje 
 odoo.exceptions.UserError: Se emplea cuando un usuario trata de agregar un valor a un registro y el estado del registro no es el correcto porque no se cumplen ciertas condiciones.
 
 odoo.exceptions.ValidationError: Se aplica cuando las condiciones que afectan a un determinado registro fallan.
+
+#posiciones para herencias
+div[1] empieza con el 1
