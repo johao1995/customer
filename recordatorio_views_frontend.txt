@@ -37,7 +37,7 @@ ejemplo
 
 #En Odoo 14, la clase "oe_button_box" se utiliza para definir un contenedor de botones en la interfaz de usuario de Odoo. Esta clase se utiliza para agrupar un conjunto de botones relacionados en una sola área de la pantalla
 <div class="oe_button_box" name="button_box">
-    <button class="oe_highlight">Guardar</button>
+    <button class="oe_highlight" icon="" >Guardar</button> -->icon="" te mostrara el icono de font awesome
     <button class="oe_secondary">Cancelar</button>
     <a href="#" class="oe_inline">Más información</a>
 </div>
