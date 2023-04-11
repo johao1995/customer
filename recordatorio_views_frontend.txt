@@ -1,5 +1,9 @@
 #para ingresar a la consola de odoo y testear usamos python odoo-bin shell -c odoo.conf -d name_db
 para hacer un create,write,unlink al final se tiene que guardar con este comando self.env.cr.commit
+item.search(['|',('type_item','=','otro'),('type_item','=','hadware')]) --> '|' es O
+
+
+
 widget=EFectos VIsuales
 <widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
 <field name="puntuacion" widget="percentpie"/>
