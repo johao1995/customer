@@ -1,3 +1,4 @@
+#para ingresar a la consola de odoo y testear usamos python odoo-bin shell -c odoo.conf -d name_db
 widget=EFectos VIsuales
 <widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
 <field name="puntuacion" widget="percentpie"/>
@@ -115,3 +116,4 @@ odoo.exceptions.ValidationError: Se aplica cuando las condiciones que afectan a 
 
 #posiciones para herencias
 div[1] empieza con el 1
+
