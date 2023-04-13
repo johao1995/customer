@@ -77,6 +77,27 @@ ahora en la view form
         <field name="perm_unlink">1</field>
  </record
  
+ #view de tipo search
+ <record id="biblioteca.view_search_library_book" model="ir.ui.view">
+        <field name="name">biblioteca.view.search.library.book</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="author_id"/>
+
+                <filter string="Literatura" name="filter_literatura" domain="[('type_books','=','literatura')]"/>
+                <filter string="Cuento" name="filter_cuento" domain="[('type_books','=','cuento')]"/>
+                <filter string="Novela" name="filter_novela" domain="[('type_books','=','novela')]"/>
+                <filter string="Peomas" name="filter_poema" domain="[('type_books','=','poema')]"/>
+                <!--group by-->
+                <filter string="Type Books" name="group_type_book" context="{'group_by':'type_books'}"/>---> agrupando  el name puede ser cualquerira
+            </search>
+        </field>
+    </record>
+
+
  #campos compute
  los campos que tengan como atributo compute, en la base datos no se almacenan pero si deseas que se almacene se usa el attributo store=True
  quanty=fields.Float(compute='compute_total',store=True)
