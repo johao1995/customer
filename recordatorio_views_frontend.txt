@@ -143,3 +143,24 @@ odoo.exceptions.ValidationError: Se aplica cuando las condiciones que afectan a 
 #posiciones para herencias
 div[1] empieza con el 1
 
+#obtener los parametros de la url de un model en odoo
+def test(self):
+        print(self)--> Llama al objeto
+        print(self._context)-->{
+                                  'lang': 'es_PE',
+                                  'tz': False,
+                                  'uid': 1,
+                                  'allowed_company_ids': [
+                                    1
+                                  ],
+                                  'params': {
+                                    'id': 8,
+                                    'cids': 1,
+                                    'menu_id': 72,
+                                    'action': 88,
+                                    'model': 'minimarket.product',
+                                    'view_type': 'form'
+                                  }
+                                }
+        
+
