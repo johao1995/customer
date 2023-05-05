@@ -163,4 +163,7 @@ def test(self):
                                   }
                                 }
         
+        
+   #compañias
+   self.env.user.company_id --> te arroja el id de la compañia en la que esta logeado el usuario
 
