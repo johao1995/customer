@@ -173,3 +173,12 @@ def test(self):
 cada usuario tiene un campo 'company_id' que relaciona con la tabla copania
 sudo()--> te permite tener todas los permisoso de administradores
 data=self.env['hr.employee'].sudo().search([('company_id.id','=',self.env.user.company_id.id)])
+
+####PYTHON###3
+Fechas
+import datetime
+datetime.datetime.now()--> te muestra la fecha y hora actual  2023-05-09 14:20:12.955428
+datetime.datetime.now().strftime("%H:%M.%S")---> Te muestra la hora actual port el strftime 14:20:52
+datetime.timedelta(hours=5) --> te muestra la hora en este caso le estoy diciendo muestrame 5 horas 5:00:00
+datetime.timedelta(hours=19) --> te muestra la hora en este caso le estoy diciendo muestrame 19 horas 19:00:00
+
