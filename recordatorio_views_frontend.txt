@@ -2,8 +2,6 @@
 para hacer un create,write,unlink al final se tiene que guardar con este comando self.env.cr.commit
 item.search(['|',('type_item','=','otro'),('type_item','=','hadware')]) --> '|' es O
 
-
-
 widget=EFectos VIsuales
 <widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
 <field name="puntuacion" widget="percentpie"/>
@@ -173,6 +171,30 @@ def test(self):
 cada usuario tiene un campo 'company_id' que relaciona con la tabla copania
 sudo()--> te permite tener todas los permisoso de administradores
 data=self.env['hr.employee'].sudo().search([('company_id.id','=',self.env.user.company_id.id)])
+
+#Se puede incrsutar function a un campo como default
+class Prueba(models.Model):
+    _name="test_prueba"
+
+    def get_date(self):
+        data=datetime.now()
+        data_edit=data-timedelta(hours=5)
+        return data_edit
+
+    fecha1=fields.Datetime(string="Fecha1",default=get_date)
+    
+  #qweb puedes obtener una function del model desde la qweb mediante objetos
+  def get_date_qweb(self):
+        data=datetime.now()
+        data_edit=data-timedelta(hours=5)
+        return data_edit
+  <template>
+    <t t-foreach="docs" t-as="o">
+        #Aca estamos instanciando la variable o  a cada objeto del model , asi como o puede acceder a cualquier campo tambien puede acceder a functiones
+        <t t-esc="o.get_date_qweb()"/>
+    </t>
+  </template>
+
 
 ####PYTHON###3
 Fechas
