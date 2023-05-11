@@ -195,6 +195,8 @@ class Prueba(models.Model):
     </t>
   </template>
 
+#api.onchange('') --> el api onchange se activa cuando editas un campo que referencias en el onchange pero
+al seleccionar el button create se activan todos los onchnages que esten en tu model
 
 ####PYTHON###3
 Fechas
