@@ -198,6 +198,25 @@ class Prueba(models.Model):
 #api.onchange('') --> el api onchange se activa cuando editas un campo que referencias en el onchange pero
 al seleccionar el button create se activan todos los onchnages que esten en tu model
 
+#oe_chatter
+# agregando caja de seguimeinto o_chatter
+
+class Model(models.Model)
+   _name='mimodel'
+   inherit="mail.thread"
+   
+   
+depends:[
+	'mail'
+]
+
+
+   <div class="oe_chatter">
+        <field name="message_follower_ids"/>
+        <!-- <field name="activity_ids"/> -->
+        <field name="message_ids"/>
+    </div>
+
 ####PYTHON###3
 Fechas
 import datetime
