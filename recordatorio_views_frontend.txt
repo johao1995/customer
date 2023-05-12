@@ -216,6 +216,11 @@ depends:[
         <!-- <field name="activity_ids"/> -->
         <field name="message_ids"/>
     </div>
+#COMPUTE
+-La function compute no almacena en la Base Datos pero si es visible el valor del campo en la view, si pones store=True se almacena en la BD pero no se vera en la view
+-la function compute se aplica cuando uno renderisa la pagina ,cllickea en create,etc.
+-#onchange
+la function onchange se aplica cuando actualizas ciertos campos  y se activan todos los onchanges creados en el model cuando seleccionas el button create 
 
 ####PYTHON###3
 Fechas
