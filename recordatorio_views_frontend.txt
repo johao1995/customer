@@ -266,48 +266,35 @@ class ReportProductAbstract(models.AbstractModel):
         data={
            
         }
-        return data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return data --> envia la data al template
 
 #Reporte en excel
 module report.xlsx
 
-from odoo import models
-class PartnerXlsx(models.AbstractModel):
-    _name = 'report.module_name.report_name'
+ def get_test(self):
+ 	data={}
+        return self.env.ref('minimarket.action_report_customer_xlsx').report_action(self,data=data)
+
+ <record id="minimarket.action_report_customer_xlsx" model="ir.actions.report">
+            <field name="name">Reporte Producto XLSX</field>
+            <field name="model">minimarket.customer</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">minimarket.report_customer_xlsx</field>
+            <field name="print_report_name">'Reporte Customer XLSX'</field>
+        </record>
+	
+from odoo import models,fields,api
+
+
+class ReportCustomerxlsx(models.AbstractModel):
+    _name = 'report.minimarket.report_customer_xlsx'
     _inherit = 'report.report_xlsx.abstract'
+
+    @api.model
     def generate_xlsx_report(self, workbook, data, partners):
-        for obj in partners:
-            report_name = obj.name
-            # One sheet by partner
-            sheet = workbook.add_worksheet(report_name[:31])
-            bold = workbook.add_format({'bold': True})
-            sheet.write(0, 0, obj.name, bold)
-To manipulate the workbook and sheet objects, refer to the documentation of xlsxwriter.
+        sheet=workbook.add_worksheet("Customer")
+        format1=workbook.add_format({'bold':True})
+        sheet.write(0,0,'Nombre',format1)
 
-A report XML record
 
-<report
-    id="partner_xlsx"
-    model="res.partner"
-    string="Print to XLSX"
-    report_type="xlsx"
-    name="module_name.report_name"
-    file="res_partner"
-    attachment_use="False"
-/>
+
