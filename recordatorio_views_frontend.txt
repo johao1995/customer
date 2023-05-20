@@ -231,3 +231,83 @@ datetime.timedelta(hours=5) --> te muestra la hora en este caso le estoy diciend
 datetime.timedelta(hours=19) --> te muestra la hora en este caso le estoy diciendo muestrame 19 horas 19:00:00
 strftime("%m/%d/%Y, %H:%M:%S")
 
+
+#Report PDF
+<record id="minimarket.action_report_product" model="ir.actions.report">
+            <field name="name">Reporte Producto</field>
+            <field name="model">minimarket.product</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">minimarket.report_product</field>
+            <field name="binding_type">action</field>
+            <field name="paperformat_id" ref="minimarket.paperformat_producto"/>
+            <field name="print_report_name">'Reporte Producto'</field>
+ </record>
+ 
+class ProductWizard(models.TransientModel):
+    _name="minimarket.product.wizard"
+    _description="Wizard de Product"
+
+
+    date_to=fields.Datetime(string="Fecha Inicio")
+    date_end=fields.Datetime(String="Fecha Hasta")
+
+    def get_pdf(self):
+        data = {
+            'date_to':self.date_to,
+            'date_end':self.date_end
+        }
+        return self.env.ref('minimarket.action_report_product').report_action(self,data=data)
+	
+class ReportProductAbstract(models.AbstractModel):
+    _name='report.minimarket.report_product' -->el report_product es el report_name del ir.actions.report
+
+    @api.model
+    def _get_report_values(self,docids,data=None):
+        data={
+           
+        }
+        return data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Reporte en excel
+module report.xlsx
+
+from odoo import models
+class PartnerXlsx(models.AbstractModel):
+    _name = 'report.module_name.report_name'
+    _inherit = 'report.report_xlsx.abstract'
+    def generate_xlsx_report(self, workbook, data, partners):
+        for obj in partners:
+            report_name = obj.name
+            # One sheet by partner
+            sheet = workbook.add_worksheet(report_name[:31])
+            bold = workbook.add_format({'bold': True})
+            sheet.write(0, 0, obj.name, bold)
+To manipulate the workbook and sheet objects, refer to the documentation of xlsxwriter.
+
+A report XML record
+
+<report
+    id="partner_xlsx"
+    model="res.partner"
+    string="Print to XLSX"
+    report_type="xlsx"
+    name="module_name.report_name"
+    file="res_partner"
+    attachment_use="False"
+/>
