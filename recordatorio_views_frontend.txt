@@ -2,6 +2,37 @@
 para hacer un create,write,unlink al final se tiene que guardar con este comando self.env.cr.commit
 item.search(['|',('type_item','=','otro'),('type_item','=','hadware')]) --> '|' es O
 
+#Ojo cuando deses filter para igualar un objeto con otro objeto
+ejemplo:
+class Customer(models.Model):
+    _name="minimarket.customer"
+    product_id=fields.Many2one(string="Producto",comodel_name="minimarket.product")
+    
+ class CustomerWizard(models.Model):
+    _name="minimarket.customer"
+    product_id=fields.Many2one(string="Producto",comodel_name="minimarket.product")
+    
+     def imprimir_xlsx(self):
+        data={
+            'product_id':self.product_id.id,
+        }
+        return self.env.ref('minimarket.action_report_xlsx_minimarket_customer').report_action(self,data=data)
+
+cuando desee igualar  en un clase para reporte xlsx como ejemplo 
+class ReportCustomerxlsx(models.AbstractModel):
+    _name="report.minimarket.report_xlsx_customer"
+    _inherit="report.report_xlsx.abstract"
+
+    @api.model
+    def generate_xlsx_report(self,workbook,data,partners):
+    	 obj_customer=self.env['minimarket.customer'].search([('product_id','=',data.get('product_id'))])
+	 en este eejmplo estoy igualando un objeto=id(el id es numerico)
+	 lo que hacia era igualar un 'product_id','=',data.get('product_id')--> pero al hacer esto me arrojaba nada
+	 al parecer cuando quieres igualar un objeto debes hacerlo con su id numerico
+	 asi seria:
+	 obj_customer=self.env['minimarket.customer'].search([('product_id','=',1)])
+
+
 widget=EFectos VIsuales
 <widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
 <field name="puntuacion" widget="percentpie"/>
