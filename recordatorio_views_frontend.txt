@@ -328,4 +328,20 @@ class ReportCustomerxlsx(models.AbstractModel):
         sheet.write(0,0,'Nombre',format1)
 
 
+#ACCIONES DE TIPO SERVIDOR
+class Customer(models.Model):
+    _name="minimarket.customer"
+    
+    def get_customer(self):
+        self.type_customer="deudor"
+
+<record id="minimarket.action_server_minimarket_customer" model="ir.actions.server">
+            <field name="name">Tipo Cliente</field>
+            <field name="model_id" ref="minimarket.model_minimarket_customer"/>
+            <field name="state">code</field>
+            <field name="code">
+                for rec in records:--->records contiene todos los registros seleccionados desde la vista 
+                    rec.get_customer()
+            </field>
+ </record>
 
