@@ -347,3 +347,5 @@ class Customer(models.Model):
 
 #Ojo cuando desees registrar un objeto
 no se puede registrar un objeto completo , basta solo con el id del objeto ,para registrarlo a un campo many2one por que si no saldra error
+#Para obtener los datos que envio desde un context hacia un model desde el ir.actions.act_window
+se usa self.env.context
