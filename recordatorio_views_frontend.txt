@@ -349,3 +349,52 @@ class Customer(models.Model):
 no se puede registrar un objeto completo , basta solo con el id del objeto ,para registrarlo a un campo many2one por que si no saldra error
 #Para obtener los datos que envio desde un context hacia un model desde el ir.actions.act_window
 se usa self.env.context
+
+
+# OBteniendo data de un model desde el context y realizando el query 
+class WizardUpdatePresupuesto(models.TransientModel):
+    _name="cinestar.update_presupuesto_wizard"
+
+    STATE_PRESUPUESTO=[
+        ('Borrador','borrador'),
+        ('Aprobado','aprobado'),
+        ('Publicado','publicado')
+    ]
+    
+    name=fields.Char(string="Pelicula")
+    description=fields.Text(string="Descripcion")
+    # image_movies=fields.Binary(string="Imagen")
+    genero_id=fields.Many2one(string="Genero",comodel_name="cinestar.genero")
+    date_streno=fields.Date(string="Estreno")
+    duration=fields.Datetime(string="Duracion")
+    clasification=fields.Selection(string="Clasificacion",selection=[
+        ('menor_15','Menores a 15'),
+        ('mayor_18','Mayores a 18')
+    ],default='mayor_18')
+    state=fields.Selection(selection=STATE_PRESUPUESTO)
+
+    @api.multi
+    def btn_write_presupuesto(self):
+        id_presupuesto=self.env.context.get('id_presupuesto')
+        print(id_presupuesto)
+
+        query='''
+            update cinestar_presupuesto
+            set name= %s,
+                description= %s,
+                date_streno= %s,
+                duration= %s,
+                clasification= %s,
+                genero_id= %s
+                where id= %s
+        '''
+
+        self.env.cr.execute(query,(self.name,
+                                    self.description,
+                                    self.date_streno,
+                                    self.duration,
+                                    self.clasification,
+                                    self.genero_id.id,
+                                    self.env.context.get('id_presupuesto')))
+
+        self.env.cr.commit()
