@@ -412,3 +412,37 @@ class WizardUpdatePresupuesto(models.TransientModel):
         res['name']='Gran JC'
         return res
 Esto es lo mismo que el atributo default, hace la misma funcionalidad, fields son los nombres de los campos que te trae del model y la funcion default_get se activa solo , como el compute 
+
+#PARA ODOO V8 en los report PDF
+class  WizardAccountInvoice(models.TransientModel):
+    _name="account_report_invoice_johao.wizard_account_invoice"
+
+    date_from=fields.Date(string="Fecha Desde")
+    date_to=fields.Date(string="Fecha Hasta")
+
+    @api.multi
+    def get_pdf(self):
+        data={
+            'date_from':self.date_from,
+            'date_to':self.date_to
+        }
+
+        return self.env['report'].get_action(self,'account_report_invoice_johao.report_account_invoice',data=data) --> dentro del get_action se ponen el report_name del ir.actions.report.xml
+#
+class ReportAccountInvoice(models.AbstractModel):
+    _name="report.account_report_invoice_johao.report_account_invoice"
+
+    @api.model
+    def render_html(self,docids,data=None):
+        obj_account_invo=self.env['account.invoice'].search([
+            ('date_invoice','>=',data.get('date_from',False)),('date_invoice','<=',data.get('date_to',False))
+        ])
+        print(obj_account_invo)
+        print("**Enviando informacion al template***")
+        docargs={
+            'docs':obj_account_invo,
+            'date':date.today()
+        }
+        return self.env['report'].render('account_report_invoice_johao.report_account_invoice',docargs) --> dentro del render se ponen el report_name del ir.actions.report.xml
+
+
