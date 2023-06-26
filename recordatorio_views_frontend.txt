@@ -243,7 +243,7 @@ depends:[
 
 
    <div class="oe_chatter">
-        <field name="message_follower_ids"/>
+        <field name="message_follower_ids widget="mail_followers""/>
         <!-- <field name="activity_ids"/> -->
         <field name="message_ids"/>
     </div>
@@ -449,3 +449,23 @@ class ReportAccountInvoice(models.AbstractModel):
 format_header=workbook.add_format({'bold':True,'font_size':'15px','border':True,'bg_color':'yellow'})
 format_body=workbook.add_format({'font_size':'10px','border':True})
 sheet.set_column('C:J',15)--> la celda C hasta J se anchara las columnas en un tamaño de 15
+
+#seguimiento
+class Customer(models.Model):
+    _name="module_test.customer"
+    _inherit="mail.thread"
+
+  #si deseamos saber que se creo un reguistros usamos el tracking=True en los campos que deseamos
+  <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <!-- <field name="activity_ids"/> -->
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
+El campo <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/> en Odoo se utiliza para gestionar los seguidores o suscriptores de un registro en particular.
+
+Cuando este campo se muestra en una vista, proporciona una interfaz para que los usuarios puedan seguir o dejar de seguir el registro y recibir notificaciones relacionadas con los cambios o actualizaciones en el mismo.
+
+El campo <field name="message_ids" widget="mail_thread"/> en Odoo se utiliza para gestionar los hilos de mensajes asociados a un registro específico.
+
+Cuando este campo se muestra en una vista, proporciona una interfaz donde los usuarios pueden ver y participar en los hilos de mensajes relacionados con el registro en cuestión.
