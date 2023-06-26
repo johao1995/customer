@@ -445,4 +445,7 @@ class ReportAccountInvoice(models.AbstractModel):
         }
         return self.env['report'].render('account_report_invoice_johao.report_account_invoice',docargs) --> dentro del render se ponen el report_name del ir.actions.report.xml
 
-
+#Estylos de report_xlsx
+format_header=workbook.add_format({'bold':True,'font_size':'15px','border':True,'bg_color':'yellow'})
+format_body=workbook.add_format({'font_size':'10px','border':True})
+sheet.set_column('C:J',15)--> la celda C hasta J se anchara las columnas en un tamaño de 15
