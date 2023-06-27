@@ -1,3 +1,11 @@
+#OJO COROJO
+En odoo cuando tenemos campos Many2one(foreign key) Many2many a estos campos si no se inserta informacion podria salir error por que solo permiten ecibir Null,0,1
+ahora cuando dejamos en blanco esos campos , los metodos create(),write()  por detras hace que esos cmapos que dejo en blanco al momento de crear o actualizar ,los convierte el False a  Null
+para que de esta manera Postgres no me arroje error
+-campos en blanco se transforman en False.
+ AHora cuando realizamos querys con el self.env.cr.execute() me saldra ese error por que los campos Foreign key no permite valores boolean por ello 
+use este codgo self.nacionality_id.id if self.nacionality_id else None.Lo que hago es que si el campo esta en blanco le envio un None que en python significa Null
+
 #para ingresar a la consola de odoo y testear usamos python odoo-bin shell -c odoo.conf -d name_db
 para hacer un create,write,unlink al final se tiene que guardar con este comando self.env.cr.commit
 item.search(['|',('type_item','=','otro'),('type_item','=','hadware')]) --> '|' es O
