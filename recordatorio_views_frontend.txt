@@ -89,6 +89,8 @@ options
 Atributos de campo de view
 domain=Filtracion --> <field name="category_id" domain=[('','',')]
 context=pasa valor por defecto
+OJo si paso un valor por el context desde un ir.actions.act_window para poder obtener el valor en el model se usa self.env.context y para obtenerlo directo en la view sea form,tree se usa 
+<field name="campo1" invisible="context.get('')"/> el context.get() obtiene el valor pasado desde el context
 attrs=invisible,readonly,required ---> <field name="" attrs="{'invisible':True}"
 options=no_quick_create-->no crear no_create_edit-->no crear y eitar  no_open-->no te permite abrir un selector o opcion
 <field name="field" options="{'no_create':True}"
