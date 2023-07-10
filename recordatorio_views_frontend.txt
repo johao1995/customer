@@ -484,3 +484,22 @@ Cuando este campo se muestra en una vista, proporciona una interfaz donde los us
 pl_id=fields.Many2many(string="PL",comodel_name="purchase_albaran.order_production_plp")
 para acceder a su ids se sua prin(self.pl_id.ids)--->[1,2,3] se usa ids por que son varios por ser un campo many2many , print(self.pl_id) --> purchase_albaran.order_production_plp(1, 2, 3)
  te mostrara los objetos  a diferencia de prin(self.pl_id.id)
+
+#Api Antigua odoov8
+
+cr (cursor): El parámetro cr representa el cursor de la base de datos. Es una conexión a la base de datos que permite realizar operaciones como lectura y escritura de datos. Se utiliza para ejecutar consultas SQL y realizar operaciones en la base de datos.
+
+uid (user ID): El parámetro uid representa el ID del usuario que realiza la operación. Se utiliza para determinar los permisos y restricciones de acceso del usuario al realizar acciones en el modelo. Cada usuario en Odoo tiene un ID único asociado a él.
+
+context: El parámetro context es un diccionario que proporciona información adicional y contexto durante la ejecución de los métodos del modelo. Puede contener información como el idioma preferido del usuario, valores predeterminados de campos, información contextual específica del negocio, entre otros.
+
+para crear o actualizar un campo many2many 
+new_record = self.env['model.name'].create({
+    'field1': value1,
+    'field2': value2,
+    'presupuesto_ids': [(6, 0, [record_ids])]
+})
+y si deseas fltrar un objeto que tiene un campo many2many asociado a otra tabla  
+obj_cine_gen=self.env['cinestar.genero'].search([('presupuesto_ids','in',[self.id])]) --> [self.id] aca puede ir un id o varios ids , te va a filtrar el id que este asociado ala otra tabla 
+ejemplo si un registro tiene un campo many2many y su campo es presupeusto_id  y tiene asociado los ids 1,2,3  y al filtrar obj_cine_gen=self.env['cinestar.genero'].search([('presupuesto_ids','in',[1])])
+me va  a flitrar el objeto que tiene relacione con id 1,2,3 
