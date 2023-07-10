@@ -479,3 +479,8 @@ Cuando este campo se muestra en una vista, proporciona una interfaz para que los
 El campo <field name="message_ids" widget="mail_thread"/> en Odoo se utiliza para gestionar los hilos de mensajes asociados a un registro específico.
 
 Cuando este campo se muestra en una vista, proporciona una interfaz donde los usuarios pueden ver y participar en los hilos de mensajes relacionados con el registro en cuestión.
+
+#OJO en los campos Many2many
+pl_id=fields.Many2many(string="PL",comodel_name="purchase_albaran.order_production_plp")
+para acceder a su ids se sua prin(self.pl_id.ids)--->[1,2,3] se usa ids por que son varios por ser un campo many2many , print(self.pl_id) --> purchase_albaran.order_production_plp(1, 2, 3)
+ te mostrara los objetos  a diferencia de prin(self.pl_id.id)
