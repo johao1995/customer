@@ -503,3 +503,9 @@ y si deseas fltrar un objeto que tiene un campo many2many asociado a otra tabla
 obj_cine_gen=self.env['cinestar.genero'].search([('presupuesto_ids','in',[self.id])]) --> [self.id] aca puede ir un id o varios ids , te va a filtrar el id que este asociado ala otra tabla 
 ejemplo si un registro tiene un campo many2many y su campo es presupeusto_id  y tiene asociado los ids 1,2,3  y al filtrar obj_cine_gen=self.env['cinestar.genero'].search([('presupuesto_ids','in',[1])])
 me va  a flitrar el objeto que tiene relacione con id 1,2,3 
+
+#Replace
+texto='BS(1)'
+new_text=texto.replace('BS(','').replace(')','')
+print(int(type(new_text)) --> el replace remplaza lo que deseas por algo que deseas como en este ejemplo , estoy remplazando con un valor nada ''
+
