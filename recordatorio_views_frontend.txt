@@ -1,3 +1,6 @@
+#Dato
+COmo sabemos si un registro un campo active=False , el registro se ocultara desde la interfaz,pero si tenemos un campo related que relaciona  auna tabla el cual uno de sus campos
+el campo active = False, entonces ese campo dela tabla 2 no se ocultara , semotrara con normalidad.
 #Grupos
 -para saber si un usuario pertence a un grupo desde python se usa:
 self.env.user.has_group('modulo.fddff') --> si encaso esta en el grupo te devuelve True en caso contrario de devuelve un False
