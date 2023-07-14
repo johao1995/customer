@@ -523,3 +523,21 @@ texto='BS(1)'
 new_text=texto.replace('BS(','').replace(')','')
 print(int(type(new_text)) --> el replace remplaza lo que deseas por algo que deseas como en este ejemplo , estoy remplazando con un valor nada ''
 
+
+#controller
+
+from odoo import http
+from odoo.http import request
+
+class Customer(http.Controller):
+
+    @http.route('/customer/product/',auth='public',website=True)
+    def get_product(self,**kw):
+        data=[
+            {'id':1,'name':'Laptop','price':1500},
+            {'id':2,'name':'Impresora','price':1200},
+            {'id':3,'name':'TV Plasma','price':1000},
+            {'id':4,'name':'Refrigeradora','price':1300}
+        ]
+        print(request.params)
+        return str(data)
