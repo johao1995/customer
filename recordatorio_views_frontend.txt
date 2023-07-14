@@ -524,20 +524,39 @@ new_text=texto.replace('BS(','').replace(')','')
 print(int(type(new_text)) --> el replace remplaza lo que deseas por algo que deseas como en este ejemplo , estoy remplazando con un valor nada ''
 
 
-#controller
+#CONTROLADORES(controller)
 
 from odoo import http
 from odoo.http import request
+from odoo import http
+from odoo.http import request
+from datetime import date
 
-class Customer(http.Controller):
+class Product(http.Controller):
 
-    @http.route('/customer/product/',auth='public',website=True)
+    @http.route('/test',auth='public',website=True)
     def get_product(self,**kw):
-        data=[
-            {'id':1,'name':'Laptop','price':1500},
-            {'id':2,'name':'Impresora','price':1200},
-            {'id':3,'name':'TV Plasma','price':1000},
-            {'id':4,'name':'Refrigeradora','price':1300}
-        ]
-        print(request.params)
-        return str(data)
+        obj_pruchase_product=request.env['bodega.purchase_product'].search([])
+        context={
+            'purchase_product':obj_pruchase_product
+        }
+        return request.render('bodega.purchase_product',context)
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="purchase_product">
+            <t t-call="website.layout">
+                <t t-foreach="purchase_product" t-as="p">
+                    <t t-esc="p.name"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+__manifest__.py
+
+{
+    #template
+    'template/purchase_product.xml',
+}
