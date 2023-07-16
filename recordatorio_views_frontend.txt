@@ -251,7 +251,8 @@ class Prueba(models.Model):
   </template>
 
 #api.onchange('') --> el api onchange se activa cuando editas un campo que referencias en el onchange pero
-al seleccionar el button create se activan todos los onchnages que esten en tu model
+al seleccionar el button create(cuando se selecciona el button Nuevo o create nuevo registro) esto sucedera sin inportar 
+que en el onchange('') dependa de que un campo se actualize,se activan todos los onchnages que esten en tu model
 
 #oe_chatter
 # agregando caja de seguimeinto o_chatter
