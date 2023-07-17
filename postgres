@@ -1,0 +1,53 @@
+#Descargando Postgres y PG Admin
+
+Tutoriales de Instalación
+#Comandos de instalación de Postgresql y Pgadmin
+
+sudo apt update
+
+sudo apt install postgresql postgresql-contrib  --> contrib es para descargar e actualizado
+
+sudo su - postgres  --> entrando al root del posgrest
+
+psql  -> diciendo que usare sintaxis postgres
+
+
+
+create user curso with password 'Curso2021.';  --> curso es el user y CUrso2021 es el pasword  se esta creando un usuario
+
+create database db_curso with owner curso;  --> creando una BD y dandole acceso a el usuario curso
+
+alter user curso with superuser; -->actualizando al user y haciendole superuser
+
+sudo apt install curl
+
+curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+sudo apt install pgadmin4
+
+#docker-compose.yml
+version: '3.1'
+services:
+  web:
+    image: odoo:16.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./addons:/mnt/extra-addons
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=postgres Base datos por defecto
+      - POSTGRES_PASSWORD=odoo  --> usuario odoo que le creamos desde el docker-compose.yml
+      - POSTGRES_USER=odoo --> password odoo que le creamos desde el docker-compose.yml
+
+para acceder a la BD desde el pg admin
+user=odoo
+passwrdo=odoo
+Host/username= aca se pone la ip del contenedor que tiene el postgres
+para ver la ip se ingresa al contenedor de la BD con este comando sudo docker inspect name_contenedor y buscamos IPAddress": "172.18.0.2" y
+esa es la ip con todo esto nos conectamos  a la BD
