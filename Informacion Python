@@ -1,0 +1,25 @@
+Lambda , ojo esto funciona tambien para las tuplas
+data=[2,4,5,6,8,1,3,11]
+
+print(list(filter(lambda n:n%2==0,data)))
+
+split(),strip()
+data=" C(2),B(1),E(3) "
+new_data=data.strip().split(",") --> strip quita los espacios en blanco,split(',') separalos caracteres tomando conmo punto de referencia en este caso la coma
+print(new_data)
+
+Funcion en una sola linea
+dato=1 if True else 0 --> Le estoy diciendo si la condicion es True le da el valor 1 en caso es falso le asigan el valor 0
+
+agregando a un array{] valores que cumplan la condicion
+
+number_pares=[]
+def get_number_pares(self):
+  for n in [1,2,3,4,5,6]:
+  if n%2==0:
+    number_pares.append(n)
+
+el ejemplo de la funcion def get_number_pares lo resumo en la linea de abajo y hacen lo mismo 
+number_pares=[num for num in [1,2,3,4,5,6,7,8] if num%2==0]
+print(number_pares)
+
