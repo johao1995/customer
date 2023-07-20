@@ -568,3 +568,22 @@ la funcion copy por defecto copia un regsitro existente y copia ta como esta , e
 def copy(self,default=None):
   default=dict(default or {})
   return super(name_clase,self).copy(values)
+
+
+El método fields_view_get es un método especial en Odoo que permite personalizar o extender las vistas de los modelos. Esta función es llamada para obtener la estructura de las vistas (formularios, listas, etc.) que se mostrarán en la interfaz de usuario para un modelo específico.
+
+A continuación, te explicaré los parámetros que acepta el método fields_view_get:
+
+self: Es el objeto en sí mismo, es decir, la instancia de la clase que está llamando al método. En el contexto de este método, self representa el registro actual del modelo.
+
+view_id: Este parámetro opcional indica el ID de la vista que se está solicitando. Puedes utilizar este parámetro para determinar qué vista específica se está solicitando (por ejemplo, vista de formulario, vista de árbol, etc.).
+
+view_type: Este parámetro indica el tipo de vista que se está solicitando. Puede tomar varios valores, como 'form' para la vista de formulario, 'tree' para la vista de lista (árbol), 'kanban' para la vista kanban, etc. Es útil para diferenciar entre los diferentes tipos de vistas en caso de que necesites realizar acciones específicas según el tipo de vista.
+
+toolbar: Es un parámetro booleano que indica si la barra de herramientas (botones, acciones, etc.) debe mostrarse o no en la vista.
+
+submenu: Es un parámetro booleano que indica si la vista es parte de un submenú o no.
+
+El propósito principal de este método es permitir la personalización dinámica de las vistas según las necesidades del desarrollador o según ciertas condiciones específicas del modelo o del usuario. Puedes utilizar este método para ajustar la presentación de datos, ocultar o mostrar campos, agregar o eliminar elementos de la barra de herramientas y mucho más.
+
+Es importante tener en cuenta que, si deseas utilizar este método, debes asegurarte de llamar correctamente a la función original fields_view_get de la superclase para evitar conflictos o errores en la interfaz de usuario.
