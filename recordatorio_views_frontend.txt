@@ -561,3 +561,10 @@ __manifest__.py
     #template
     'template/purchase_product.xml',
 }
+
+#funcion copy()
+la funcion copy por defecto copia un regsitro existente y copia ta como esta , es decir si tiene campos Many2many,Many2one,One2many y tiene registros los copia de todas maneras
+-en la funcion copy no se puede ver el valor de los campos que se va a copiar, odoo por defecto lo hace , es decir no es visible por el programador al hacer print(values)
+def copy(self,default=None):
+  default=dict(default or {})
+  return super(name_clase,self).copy(values)
