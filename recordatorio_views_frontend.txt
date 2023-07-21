@@ -568,18 +568,38 @@ la funcion copy por defecto copia un regsitro existente y copia ta como esta , e
 def copy(self,default=None):
   default=dict(default or {})
   return super(name_clase,self).copy(values)
+
+
 #fields_view_get---> obtener las vistas form o treee o kababn de un model
-    
+
     @api.model
-    def fields_view_get(self,view_id=None,view_type='form',toolbar=False,submenu=False):
-        print("****Vista Field****")
-        print(view_id)
-        print(view_type)
-        print(toolbar)
-        print(submenu)
-        result=super(OrderProduction,self).fields_view_get(view_id=view_id,view_type=view_type,toolbar=toolbar,submenu=submenu)
-        print(result)
+    def fields_view_get(self,view_id=None,view_type='tree',toolbar=False,submenu=False):
+        result = super(OrderProduction, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+
+        if view_type == 'tree':
+            # Analizar el contenido XML de la vista y obtener el árbol de elementos
+            doc = etree.XML(result['arch'])
+
+            # Buscar la etiqueta <field> con el atributo name="number_op"
+            field_nodes = doc.xpath("//field[@name='number_op']")
+
+            # Verificar si se encontró la etiqueta
+            if field_nodes:
+                # Acceder al primer nodo (si existen múltiples nodos con el atributo name="number_op")
+                field_node = field_nodes[0]
+
+                # Agregar el atributo string='NUMEROS PLS'
+                field_node.set('string', 'NUMEROS PLS')
+
+            # Convertir el árbol de elementos de nuevo a una cadena XML modificada
+            modified_xml_arch = etree.tostring(doc, encoding='unicode')
+
+            # Actualizar el contenido del diccionario `result` con el XML modificado
+            result['arch'] = modified_xml_arch
+
         return result
+    
+
 
 El método fields_view_get es un método especial en Odoo que permite personalizar o extender las vistas de los modelos. Esta función es llamada para obtener la estructura de las vistas (formularios, listas, etc.) que se mostrarán en la interfaz de usuario para un modelo específico.
 
