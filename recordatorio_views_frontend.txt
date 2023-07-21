@@ -571,7 +571,7 @@ def copy(self,default=None):
 
 
 #fields_view_get---> obtener las vistas form o treee o kababn de un model
-
+from lxml import etree
     @api.model
     def fields_view_get(self,view_id=None,view_type='tree',toolbar=False,submenu=False):
         result = super(OrderProduction, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
