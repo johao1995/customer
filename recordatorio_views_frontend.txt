@@ -572,32 +572,29 @@ def copy(self,default=None):
 
 #fields_view_get---> obtener las vistas form o treee o kababn de un model
 from lxml import etree
-    @api.model
-    def fields_view_get(self,view_id=None,view_type='tree',toolbar=False,submenu=False):
-        result = super(OrderProduction, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+import json
+@api.model
+	def fields_view_get(self, view_id=None, view_type='tree', toolbar=False, submenu=False):
+		result = super(Programacion, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+		list_groups = self.get_groups_ids()
+		if view_type == 'tree' and list_groups:
+			doc = etree.XML(result['arch'])
 
-        if view_type == 'tree':
-            # Analizar el contenido XML de la vista y obtener el árbol de elementos
-            doc = etree.XML(result['arch'])
-
-            # Buscar la etiqueta <field> con el atributo name="number_op"
-            field_nodes = doc.xpath("//field[@name='number_op']")
-
-            # Verificar si se encontró la etiqueta
-            if field_nodes:
-                # Acceder al primer nodo (si existen múltiples nodos con el atributo name="number_op")
-                field_node = field_nodes[0]
-
-                # Agregar el atributo string='NUMEROS PLS'
-                field_node.set('string', 'NUMEROS PLS')
-
-            # Convertir el árbol de elementos de nuevo a una cadena XML modificada
-            modified_xml_arch = etree.tostring(doc, encoding='unicode')
-
-            # Actualizar el contenido del diccionario `result` con el XML modificado
-            result['arch'] = modified_xml_arch
-
-        return result
+			for field in result["fields"]:
+				if field in list_groups:
+					for node in doc.xpath("//field[@name='%s']" % field):
+						modifiers = json.loads(node.get("modifiers")) --> el json.loads permite trasformar un json a un objeto python
+						modifiers["readonly"] = False
+						node.set("modifiers", json.dumps(modifiers)) --> el json.dumps() trasnforma un objeto python a json 
+				else:
+					for node in doc.xpath("//field[@name='%s']" % field):
+						modifiers = json.loads(node.get("modifiers"))
+						modifiers["readonly"] = True
+						node.set("modifiers", json.dumps(modifiers))
+			
+			result['arch'] = etree.tostring(doc)
+	
+		return result   
     
 
 
