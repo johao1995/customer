@@ -1,3 +1,7 @@
+import logging
+
+_logger = logging.getLogger(__name__)
+
 #Dato
 COmo sabemos si un registro un campo active=False , el registro se ocultara desde la interfaz,pero si tenemos un campo related que relaciona  auna tabla el cual uno de sus campos
 el campo active = False, entonces ese campo dela tabla 2 no se ocultara , semotrara con normalidad.
