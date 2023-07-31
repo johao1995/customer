@@ -478,6 +478,15 @@ class ReportAccountInvoice(models.AbstractModel):
 format_header=workbook.add_format({'bold':True,'font_size':'15px','border':True,'bg_color':'yellow'})
 format_body=workbook.add_format({'font_size':'10px','border':True})
 sheet.set_column('C:J',15)--> la celda C hasta J se anchara las columnas en un tamaño de 15
+import base64
+import io
+
+ for t in obj_test:
+	
+            logo=io.BytesIO(base64.b64decode(t.get_logo()))
+            sheet.insert_image(1,7,'image.png',{'image_data':logo,'x_scale':0.30,'y_scale':0.30})
+
+
 
 #seguimiento
 class Customer(models.Model):
