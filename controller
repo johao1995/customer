@@ -1,3 +1,10 @@
+#En las relaciones Many2many puedes cambiar el nombre de la tabla intermedia,los ids de las relaciones a tu antojo, si no lo describes
+odoo lo crea por defecto:
+relation='nombre de la tabla intermedia'
+column1=nonbre del id de la tabla1
+column2=nombre de id de la tabla2
+ tag_ids = fields.Many2many(string="Etiquetas",comodel_name="bo.tag",relation="bo_inmueble_tag_rel",column1="inmueble_id",column2="tag_id") 
+
 import logging
 
 _logger = logging.getLogger(__name__) 
