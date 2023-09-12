@@ -749,3 +749,33 @@ submenu: Es un parámetro booleano que indica si la vista es parte de un submen�
 El propósito principal de este método es permitir la personalización dinámica de las vistas según las necesidades del desarrollador o según ciertas condiciones específicas del modelo o del usuario. Puedes utilizar este método para ajustar la presentación de datos, ocultar o mostrar campos, agregar o eliminar elementos de la barra de herramientas y mucho más.
 
 Es importante tener en cuenta que, si deseas utilizar este método, debes asegurarte de llamar correctamente a la función original fields_view_get de la superclase para evitar conflictos o errores en la interfaz de usuario.
+
+#View Kanban
+      <record id="bo_inmueble_kanban" model="ir.ui.view">
+            <field name="name">bo_inmueble_kanban</field>
+            <field name="model">bo.inmueble</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="types"/>
+                    <field name="price"/>
+                    <field name="street"/>
+
+                    <templates>
+                        <t t-name="kanban-box"><!--kanban box hace la caja-->
+                            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                                <strong><field name="name"/></strong>
+                                <div>
+                                    Direccion: <field name="street"/>
+                                    Referencia: <field name="street_2"/>
+                                    <t t-if="record.price.value >= 6000">
+                                        Precio : <t t-esc="record.price.value" style="color:red"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+
+                </kanban>
+            </field>
+        </record>
