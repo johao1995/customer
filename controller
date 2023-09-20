@@ -779,3 +779,9 @@ Es importante tener en cuenta que, si deseas utilizar este método, debes asegur
                 </kanban>
             </field>
         </record>
+
+Model para usar archivos adjuntos
+Podremos seleccionar archivos de nuestro escritorio,PDF,WORD,ETC y serian many2many mostrar con un logo de documento 
+con el widget many2many_binary, este model es de la base de odoo
+attachment_ids = fields.Many2many(string="Archivos Adjuntos",comodel_name="ir.attachment")
+<field name="attachment_ids" widget="many2many_binary"/>
