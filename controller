@@ -788,3 +788,17 @@ attachment_ids = fields.Many2many(string="Archivos Adjuntos",comodel_name="ir.at
 
 #En caso no este leyendo los estilos del PDF
 en tecnico->parametors del sistema  ponemos report.url  http//:localhost:8069   , ahi otro que es web.base.url   http//:localhost:8069
+# Para obtenerel value de campos selection se usa este codigo pero dentro del model(dentro de la class)
+
+    TYPE_FAMILY = [
+      ('all', 'Todos'),
+      ('etiqueta', 'Etiquetas Autoadhesivas'),
+      ('termo_enc', 'Termoencogibles'),
+      ('bolsa', 'Bolsas'),
+      ('empaque', 'Empaques Flexibles'),
+      ('servicio', 'Servicio Especial')
+    ]
+familia=fields.Selection(string="Linea de Producto",selection=TYPE_FAMILY,readonly=True)
+ @api.multi
+    def get_selection_type_family(self):
+      return (dict(self.env["cotizador_flexo.cotiza_valorizado"].fields_get(allfields=["familia"])["familia"]['selection'])[self.familia])
