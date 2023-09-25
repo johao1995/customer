@@ -785,3 +785,6 @@ Podremos seleccionar archivos de nuestro escritorio,PDF,WORD,ETC y serian many2m
 con el widget many2many_binary, este model es de la base de odoo
 attachment_ids = fields.Many2many(string="Archivos Adjuntos",comodel_name="ir.attachment")
 <field name="attachment_ids" widget="many2many_binary"/>
+
+#En caso no este leyendo los estilos del PDF
+en tecnico->parametors del sistema  ponemos report.url  http//:localhost:8069   , ahi otro que es web.base.url   http//:localhost:8069
