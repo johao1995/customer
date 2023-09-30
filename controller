@@ -804,7 +804,8 @@ familia=fields.Selection(string="Linea de Producto",selection=TYPE_FAMILY,readon
       return (dict(self.env["cotizador_flexo.cotiza_valorizado"].fields_get(allfields=["familia"])["familia"]['selection'])[self.familia])
 
 #Boostrap para Odoo
-<div class ="d-flex flex-row"> --> esto hace que el contenido este en fila son class de boostrap
+<div class ="d-flex flex-row"> --> esto hace que el contenido este en fila son class de boostrap,
+puede usar flex-column
 	<label for="" string=""/> esto es para usar label y el for se usa para dirrecionar al field
 	<field name="" class="ml-1 mr-1"/> --> puedo usar ml-1(margin left) mr-1(margin right) etc
 </div>
