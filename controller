@@ -1,3 +1,21 @@
+#Campos One2many
+En Odoo, el campo "one2many" se utiliza para establecer relaciones entre registros de dos modelos diferentes. Las tuplas que mencionaste, como (0, 0, { valores }), (1, ID, { valores }), etc., se utilizan para definir las operaciones que se pueden realizar en ese campo. Aquí está una explicación de cada una:
+
+(0, 0, { valores }): Esta tupla crea un nuevo registro vinculado al campo "one2many" con los valores proporcionados en el diccionario "valores".
+
+(1, ID, { valores }): Actualiza el registro vinculado con el ID especificado con los nuevos valores proporcionados.
+
+(2, ID): Elimina y borra el registro vinculado con el ID especificado. Esto borrará completamente el objeto y su relación en el campo "one2many".
+
+(3, ID): Corta la relación con el registro vinculado con el ID especificado, pero no elimina el objeto en sí. En otras palabras, elimina la relación, pero el registro vinculado permanece en la base de datos.
+
+(4, ID): Establece una relación con un registro existente que tiene el ID especificado en el campo "one2many".
+
+(5): Desvincula todos los registros vinculados en el campo "one2many". Es similar a usar (3, ID) para cada registro vinculado.
+
+(6, 0, [IDs]): Reemplaza la lista de registros vinculados con los IDs proporcionados. Esto es como desvincular todos los registros existentes usando (5) y luego vincular los nuevos registros usando (4, ID) para cada ID en la lista de IDs.
+Estas tuplas se utilizan en las listas de comandos de "one2many" para especificar las operaciones que se deben realizar en los registros vinculados. Por ejemplo, si deseas agregar un nuevo registro, usarías (0, 0, { valores }), y si deseas eliminar un registro existente, usarías (2, ID).
+
 #En las relaciones Many2many puedes cambiar el nombre de la tabla intermedia,los ids de las relaciones a tu antojo, si no lo describes
 odoo lo crea por defecto:
 relation='nombre de la tabla intermedia'
