@@ -180,6 +180,21 @@ ahora en la view form
     </record>
 
 
+<record id="library_book_action" model="ir.actions.act_window">
+            <field name="name">Pelicula</field>
+            <field name="res_model">library.book</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="context">
+                {
+                    'search_default_filter_cuento':True --> mediante el context asi como puedo pasar data por defecto a los campos de un model,
+							    tambien puedo pasar filter por defecto mediante el contex pero se antepone antes el search
+							    ejemplo:search_default_filter_cuento: antepongo el search luego del default y luego el name del filter 
+							   y lo igualo a un True de este modo le estoy diciendo que por defecto me envie la vista filtrar del 
+							    filter name="filter_cuento"
+                }
+            </field>
+</record>
  #campos compute
  los campos que tengan como atributo compute, en la base datos no se almacenan pero si deseas que se almacene se usa el attributo store=True
  quanty=fields.Float(compute='compute_total',store=True)
