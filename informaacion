@@ -135,10 +135,11 @@ context=pasa valor por defecto
 OJo si paso un valor por el context desde un ir.actions.act_window para poder obtener el valor en el model se usa self.env.context y para obtenerlo directo en la view sea form,tree se usa 
 <field name="campo1" invisible="context.get('')"/> el context.get() obtiene el valor pasado desde el context
 attrs=invisible,readonly,required ---> <field name="" attrs="{'invisible':True}"
-options=no_quick_create-->no crear no_create_edit-->no crear y eitar  no_open-->no te permite abrir un selector o opcion
+options=no_quick_create-->no crear(te oculta la opcion de crear), no_create_edit-->no crear y eitar(te quita la opcion de crear y editar)  no_open-->no te permite abrir un selector o opcion
 <field name="field" options="{'no_create':True}"
-
-
+OJO: cuando tu didgitas un nombre en un vista en un campo Many2one por defecto te mostrar Create , create y edit, Buscar mas
+options=no_quick_create-->no crear(te oculta la opcion de crear)
+no_create_edit-->no crear y eitar(te quita la opcion de crear y editar)
 Tipos de Monedas
 creas un campo para ver el tipo de moneda que seleccionaras
 currency_id=fields.Many2one(comodel_name="res.currency")
