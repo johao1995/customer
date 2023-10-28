@@ -20,4 +20,8 @@ es decir permite actualizar nuestro repositorio local y trae los nuevos cambios 
 token
 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
 
+#Para descargar odoo desde el github
+git clone https://github.com/odoo/odoo.git -b 14.0
+-b --> es la rama branch
+14.0 --> es la version de odoo que deseo descargar
 
