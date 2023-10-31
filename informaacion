@@ -814,6 +814,8 @@ Es importante tener en cuenta que, si deseas utilizar este método, debes asegur
             </field>
         </record>
 
+#Para levantar el odoo desde la consola referenciando al odoo.conf
+python odoo-bin -c odoo.conf --> con el -c estamos indicando que ejecute el odoo-bin pero referenciando al odoo..conf
 Model para usar archivos adjuntos
 Podremos seleccionar archivos de nuestro escritorio,PDF,WORD,ETC y serian many2many mostrar con un logo de documento 
 con el widget many2many_binary, este model es de la base de odoo
