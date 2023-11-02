@@ -17,8 +17,8 @@ git clone "https://github.com/johao1995/Dev.git" --> copia o clonar todo el repo
 git pull origin master "https://github.com/johao1995/Dev.git" ---> trae o clona los cambios del repositorio y ya no trae todo el repositorio a diferencia del git clone
 es decir permite actualizar nuestro repositorio local y trae los nuevos cambios del repositorio remoto 
 
-token
-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
+clave token
+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
 
 #Para descargar odoo desde el github
 git clone https://github.com/odoo/odoo.git -b 14.0
