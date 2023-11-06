@@ -18,7 +18,7 @@ git pull origin master "https://github.com/johao1995/Dev.git" ---> trae o clona 
 es decir permite actualizar nuestro repositorio local y trae los nuevos cambios del repositorio remoto 
 
 clave token
-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
+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
 
 #Para descargar odoo desde el github
 git clone https://github.com/odoo/odoo.git -b 14.0
