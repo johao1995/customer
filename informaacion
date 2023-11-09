@@ -641,8 +641,14 @@ class Product(http.Controller):
             context = {
                 'message':'Error'
             }
-        return json.dumps(context)
-    
+        return json.dumps(context) 
+    #Si dearas hacerlo con query seria asi 
+     query1 = """
+            SELECT name FROM purchase_order
+        """
+        request.env.cr.execute(query1)
+        result_purchase_order = request.env.cr.dictfetchall()
+
     @http.route('/product', type="http" , auth="user")
     def get_product_all(self,**kwargs):
         objs_product = request.env['product'].sudo().search([])
