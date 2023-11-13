@@ -851,3 +851,6 @@ puede usar flex-column
 	<label for="" string=""/> esto es para usar label y el for se usa para dirrecionar al field
 	<field name="" class="ml-1 mr-1"/> --> puedo usar ml-1(margin left) mr-1(margin right) etc
 </div>
+
+#En los expath para saber el 1 elemento, ultimo elemento
+ <xpath expr="//notebook[last()]" position="inside">
