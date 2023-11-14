@@ -852,5 +852,7 @@ puede usar flex-column
 	<field name="" class="ml-1 mr-1"/> --> puedo usar ml-1(margin left) mr-1(margin right) etc
 </div>
 
+<p class="o_view_nocontend_smiling_face"> 
+</p>
 #En los expath para saber el 1 elemento, ultimo elemento
  <xpath expr="//notebook[last()]" position="inside">
