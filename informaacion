@@ -859,3 +859,7 @@ puede usar flex-column
 </p>
 #En los expath para saber el 1 elemento, ultimo elemento
  <xpath expr="//notebook[last()]" position="inside">
+#ojo 
+date = fields.Date(default=fields.date.today()) --> esto capta la fecha de tu pc , es decir si modifico la fecha de mi maquina se reflejara en el odoo
+es decir si estammos 14/11 pero en mi maquina esta 10/11 en el odoo mostrar la fecha 10/11
+date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto trae la fecha real 
