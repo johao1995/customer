@@ -263,6 +263,9 @@ def test(self):
         
         
    #compañias
+   self.env.company.currency_id --> moneda de la compañia  recuerda que cuando uso self.env.company estos accediendo a la tabla res.company
+   la diferencia es que me muestra la compañia actual en la que estoy en el odoo, esto pasa lo mismo con el self.env.user(muestra la informacion del
+   usuario actual)
    self.env.user.company_id.id --> te arroja el id de la compañia en la que esta logeado el usuario
    self.env['res.company']--->te muesytras las empresas que tiene Odoo
    cada eempresa tiene un id
