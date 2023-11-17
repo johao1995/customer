@@ -863,3 +863,14 @@ puede usar flex-column
 date = fields.Date(default=fields.date.today()) --> esto capta la fecha de tu pc , es decir si modifico la fecha de mi maquina se reflejara en el odoo
 es decir si estammos 14/11 pero en mi maquina esta 10/11 en el odoo mostrar la fecha 10/11
 date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto trae la fecha real 
+
+#Data 
+    <data>
+        <record id="order_product_chaufa" model="order.product">
+            <field name="name">Arroz Chaufa</field>
+            <field name="stock">50</field>
+            <field name="price">15</field>
+            <field name="discount">10</field>
+            <field name="image" type="base64" file="food_order/static/img/chaufa.png"/> --> de esta forma se agrega una imagen desde data 
+        </record>
+   </data>
