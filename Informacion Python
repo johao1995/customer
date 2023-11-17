@@ -6,6 +6,7 @@ print(list(filter(lambda n:n%2==0,data)))
 split(),strip()
 data=" C(2),B(1),E(3) "
 new_data=data.strip().split(",") --> strip quita los espacios en blanco,split(',') separalos caracteres tomando conmo punto de referencia en este caso la coma
+el split los separa   y los alamcena en una lista
 print(new_data)
 
 Funcion en una sola linea
