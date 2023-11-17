@@ -210,7 +210,9 @@ ahora en la view form
         print(result)
  
  #Sobreescribiendo el name_get(self) que viene por defecto
- 
+   class test:
+     _rec_name = "customer_id"  --> lo que hace esto es que el name por defecto sera lo que contiene el customer_id , la diferencia con name_get es
+     que en name_get puedes personalizar a tu antojo 
     def name_get(self):
         result=[]
         for user in self:
