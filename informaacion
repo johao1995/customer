@@ -876,3 +876,9 @@ date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto
             <field name="image" type="base64" file="food_order/static/img/chaufa.png"/> --> de esta forma se agrega una imagen desde data 
         </record>
    </data>
+#Frontend para caso de campos totalesm,impuesto
+     <group class="oe_subtotal_footer oe_right"> --> usamos esta class , el nolabel="1" hace que no muestre la etiqueta(label) del field 
+                                        <field name="amount_base" readonly="1"/>
+                                        <field name="amount_tax" readonly="1"/>
+                                        <field name="amout_total" readonly="1"/>
+   </group>
