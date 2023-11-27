@@ -900,3 +900,14 @@ date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto
                                         <field name="amount_tax" readonly="1"/>
                                         <field name="amout_total" readonly="1"/>
    </group>
+
+<!--view Graph-->
+<record id="movie_presupuesto_view_graph" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.graph</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <graph string="Grafico">
+                    <field name="customer_id" type="row"/>
+                </graph>
+            </field>
+</record>
