@@ -128,7 +128,11 @@ decoration-warning-->mostaza
 
 condiciones con estas decoraciones 
 ejemplo
-<field name="" decoration-info=" field == 'aprobado'"
+&gt -> Mayor que
+&lt -> Menor que
+<field name="" decoration-info=" field == 'aprobado'"/>
+<field name="" decoration-info=" field &gt 100"/> 
+<field name="" decoration-info=" field &lt 100"/>
 
 #En Odoo 14, la clase "oe_button_box" se utiliza para definir un contenedor de botones en la interfaz de usuario de Odoo. Esta clase se utiliza para agrupar un conjunto de botones relacionados en una sola área de la pantalla
 <div class="oe_button_box" name="button_box">
