@@ -4,6 +4,9 @@ python odoo-bin scaffold my_module addons_path/customer_addons
 my_module = el nombre del modulo
 addons_path/customer_addons = la ruta donde se creara ese modulo
 
+#filtered y mapped
+sale.filtered(lambda s: s.price>100) --> te filtra el resultado en una lista
+sale.mapped("name") --> te devuelve el registro del campo name en una lista
 #Campos One2many
 En Odoo, el campo "one2many" se utiliza para establecer relaciones entre registros de dos modelos diferentes. Las tuplas que mencionaste, como (0, 0, { valores }), (1, ID, { valores }), etc., se utilizan para definir las operaciones que se pueden realizar en ese campo. Aquí está una explicación de cada una:
 
