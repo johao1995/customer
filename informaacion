@@ -4,6 +4,11 @@ python odoo-bin scaffold my_module addons_path/customer_addons
 my_module = el nombre del modulo
 addons_path/customer_addons = la ruta donde se creara ese modulo
 
+#_sql_constraints = [
+  ("unique_number_document","unique(number_document)","!!!....No puede haber Documentos iguales.....!!!!") --> 
+]
+unique_number_document -> puede ser cualquier nombre que desees
+
 #filtered y mapped
 sale.filtered(lambda s: s.price>100) --> te filtra el resultado en una lista
 sale.mapped("name") --> te devuelve el registro del campo name en una lista
