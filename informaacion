@@ -9,6 +9,40 @@ addons_path/customer_addons = la ruta donde se creara ese modulo
 ]
 unique_number_document -> puede ser cualquier nombre que desees
 
+#Views 
+ <!--View Graph-->
+        <record id="movie_presupuesto_view_graph" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.graph</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <graph string="Grafico">
+                    <field name="customer_id" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--View Calendar-->
+        <record id="movie_presupuesto_view_calendar" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.calendar</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="date_pre" mode="month">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--View Pivot-->
+        <record id="movie_presupuesto_view_pivot" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.pivot</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <pivot string="Pivot">
+                    <field name="name" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
 #filtered y mapped
 sale.filtered(lambda s: s.price>100) --> te filtra el resultado en una lista
 sale.mapped("name") --> te devuelve el registro del campo name en una lista
