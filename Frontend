@@ -1,3 +1,164 @@
+#Views 
+ <!--View Graph-->
+        <record id="movie_presupuesto_view_graph" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.graph</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <graph string="Grafico">
+                    <field name="customer_id" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--View Calendar-->
+        <record id="movie_presupuesto_view_calendar" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.calendar</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="date_pre" mode="month">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--View Pivot-->
+        <record id="movie_presupuesto_view_pivot" model="ir.ui.view">
+            <field name="name">movie.presupuesto.view.pivot</field>
+            <field name="model">movie.presupuesto</field>
+            <field name="arch" type="xml">
+                <pivot string="Pivot">
+                    <field name="name" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+-AHora en las vistas 
+<field name="name" groups="account.group_account_manager"/> --> le estoy diciendo que este campo sera visible si el usuario se encuentra en ese grupo caso contrario no lo podra ver
+ojo el groups="grupo1,grupo2,etc" --> puede aver mas de un grupo 
+ejemplo
+groups="account.group_account_manager, account.group_account_invoice, account.group_account_tesoreria, account.group_account_user"/>
+
+widget=EFectos VIsuales
+<widget name="web_ribbon" title="Archivado" bg_color="bg_danger"/>
+<field name="puntuacion" widget="percentpie"/>
+<fiel name="name_campo" widget="boolean_toggle"/>
+<field name="name_campo" widget="url"/>
+<field name="name_campo" states="borrador"/> --> Le estoy diciendo que el field sera visible cuando el estado del state_presupuesto este en borrador 
+ejemplo:
+<field name="state"/>--> actualmente esta en estado borrador
+ojo el campo tiene que llamarse obligatoriamente state=fields.Selection(selection=[('aprobado','Aprobado'),('borrador','Borrador')] , por que si no , el atributo states="borrador" no funcionara
+
+-En resumen, la clase "oe_avatar" se utiliza para definir la apariencia de las imágenes de perfil de usuario y los iconos de menú en la interfaz de usuario de Odoo 16. Esta clase se utiliza en la plantilla base "web.assets_backend" y en la plantilla "web.menu" para definir la apariencia de la barra lateral y los menús de la interfaz de usuario.
+
+-En resumen, la clase "oe_title" se utiliza para definir el estilo de los títulos en la interfaz de usuario de Odoo 16. Esta clase se utiliza en varias plantillas de Odoo para definir el estilo de los títulos de sección y los títulos de registro en la vista de formulario y la vista de lista.
+
+-En resumen, la clase "o_row" se utiliza para definir el estilo de las filas en las tablas de la interfaz de usuario de Odoo 16. Esta clase se utiliza en varias plantillas de Odoo para definir el estilo de las filas que muestran los registros y los campos en la vista de lista y la vista de formulario.
+
+En resumen, self.env.ref('aca_se pone external_id.id_record') -->ref('movies.data_director')
+se utiliza en Odoo 16 para obtener un registro específico de la base de datos de Odoo utilizando su identificador único xml_id.
+
+attributos de vistas
+optional="show" -->mostrar se usa para vistas tree
+optional="hide"--->ocultar se usa para vistas tree
+
+decoraciones 
+widget="badge"
+decoration-bf-->negrita
+decoration-it-->cursiva
+decoration-danger-->rojo
+decoration-info-->azul claro
+decoration-muted-->gris claro
+decoration-success-->verde
+decoration-warning-->mostaza
+
+condiciones con estas decoraciones 
+ejemplo
+&gt -> Mayor que
+&lt -> Menor que
+<field name="" decoration-info=" field == 'aprobado'"/>
+<field name="" decoration-info=" field &gt 100"/> 
+<field name="" decoration-info=" field &lt 100"/>
+
+#En Odoo 14, la clase "oe_button_box" se utiliza para definir un contenedor de botones en la interfaz de usuario de Odoo. Esta clase se utiliza para agrupar un conjunto de botones relacionados en una sola área de la pantalla
+<div class="oe_button_box" name="button_box">
+    <button class="oe_highlight" icon="" >Guardar</button> -->icon="" te mostrara el icono de font awesome
+    <button class="oe_secondary">Cancelar</button>
+    <a href="#" class="oe_inline">Más información</a>
+</div>
+
+options
+Atributos de campo de view
+domain=Filtracion --> <field name="category_id" domain=[('','',')]
+context=pasa valor por defecto
+OJo si paso un valor por el context desde un ir.actions.act_window para poder obtener el valor en el model se usa self.env.context y para obtenerlo directo en la view sea form,tree se usa 
+<field name="campo1" invisible="context.get('')"/> el context.get() obtiene el valor pasado desde el context
+attrs=invisible,readonly,required ---> <field name="" attrs="{'invisible':True}"
+options=no_quick_create-->no crear(te oculta la opcion de crear), no_create_edit-->no crear y eitar(te quita la opcion de crear y editar)  no_open-->te oculta el cuadradito que te permite abrir formulario de un model
+<field name="field" options="{'no_create':True}"
+OJO: cuando tu didgitas un nombre en un vista en un campo Many2one por defecto te mostrar Create , create y edit, Buscar mas
+options=no_quick_create-->no crear(te oculta la opcion de crear)
+no_create_edit-->no crear y eitar(te quita la opcion de crear y editar)
+Tipos de Monedas
+creas un campo para ver el tipo de moneda que seleccionaras
+currency_id=fields.Many2one(comodel_name="res.currency")
+
+ahora en la view form
+
+<field name="amount" widget="monetary" options="{'currency_field':'currency_id'}"
+  <record id="ir_rule_user_free_own_information_university_student" model="ir.rule">
+        <field name="name">Informacion Propia Student</field>
+        <field name="model_id" ref="university.model_university_student"/>
+        <field name="groups" eval="[(4,ref('res_groups_university_user_free'))]"/><!--asociando esta regla a un grupo existente-->
+        <field name="domain_force">
+            [('create_uid','=',user.id)]<!--create_uid es el di que por defecto se agrega a las tablas de odoo para de este modo saber que usuario esta registrando,creando,eliminado informacion-->
+        </field>
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+ </record
+ 
+ #view de tipo search
+ <record id="biblioteca.view_search_library_book" model="ir.ui.view">
+        <field name="name">biblioteca.view.search.library.book</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="author_id"/>
+
+                <filter string="Literatura" name="filter_literatura" domain="[('type_books','=','literatura')]"/>
+                <filter string="Cuento" name="filter_cuento" domain="[('type_books','=','cuento')]"/>
+                <filter string="Novela" name="filter_novela" domain="[('type_books','=','novela')]"/>
+                <filter string="Peomas" name="filter_poema" domain="[('type_books','=','poema')]"/>
+                <!--group by-->
+                <filter string="Type Books" name="group_type_book" context="{'group_by':'type_books'}"/>---> agrupando  el name puede ser cualquerira
+            </search>
+        </field>
+    </record>
+
+
+<record id="library_book_action" model="ir.actions.act_window">
+            <field name="name">Pelicula</field>
+            <field name="res_model">library.book</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="context">
+                {
+                    'search_default_filter_cuento':True --> mediante el context asi como puedo pasar data por defecto a los campos de un model,
+							    tambien puedo pasar filter por defecto mediante el contex pero se antepone antes el search
+							    ejemplo:search_default_filter_cuento: antepongo el search luego del default y luego el name del filter 
+							   y lo igualo a un True de este modo le estoy diciendo que por defecto me envie la vista filtrar del 
+							    filter name="filter_cuento"
+                }
+            </field>
+</record>
+
+#posiciones para herencias
+div[1] empieza con el 1
+
+================================JAVASCRIPT===========================
 
 $(document).ready(function () {
    
