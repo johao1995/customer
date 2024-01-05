@@ -54,10 +54,19 @@ SELECT UPPER('nelson');
 #Minuscula
 SELECT lower('ANDRES');
 
+#Extrae contenido LEFT ,RIGHT
 
+SELECT LEFT('Nelson',3)
+SELECT RIGHT('Andres',3)
 
+#Funciones Numericas y Matematicas
 
+SELECT ROUND(10.44) -> 10
+SELECT ROUND(10.44,2) -> REDONDEO A 2 DECIMALES
+SELECT ABS(-10) -> 10
 
+SELECT MIN(id) FROM tb_category
+SELECT MAX(id) FROM tb_category
 
 
 
