@@ -87,6 +87,10 @@ SELECT EXTRACT(MINUTE FROM current_time)
 --SEGUNDO
 SELECT EXTRACT(SECOND FROM current_time)
 
+#LIKE
+SELECT * FROM tb_articulos WHERE description LIKE 'R%' Empiece con R
+SELECT * FROM tb_articulos WHERE description LIKE '%a' Terminen con a
+
 #Descargando Postgres y PG Admin
 
 Tutoriales de Instalación
