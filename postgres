@@ -68,10 +68,24 @@ SELECT ABS(-10) -> 10
 SELECT MIN(id) FROM tb_category
 SELECT MAX(id) FROM tb_category
 
+#Funciones de Fecha
+SELECT current_date --> Muestra la fecha actual
+SELECT CURRENT_TIME --> Muestra la fecha y Hora
+SELECT CURRENT_TIMESTAMP --> Muestra la fecha y Hora 
 
+--AÑO
+SELECT EXTRACT(YEAR FROM current_date)
+--MES
+SELECT EXTRACT(MONTH FROM current_date)
+--DAY
+SELECT EXTRACT(DAY FROM current_date)
 
-
-
+--HORAS
+SELECT EXTRACT(HOUR FROM current_time)
+--MINUTOS
+SELECT EXTRACT(MINUTE FROM current_time)
+--SEGUNDO
+SELECT EXTRACT(SECOND FROM current_time)
 
 #Descargando Postgres y PG Admin
 
