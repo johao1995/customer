@@ -1,3 +1,23 @@
+#Operadores Aritmeticos permiten realizar calculos con valores numericos como 
+-(division)/
+-(Multiplicación)* 
+-(Adición)+
+-(Resta)- 
+-(Modulo ,halla el residuo)%
+Ejemplo
+ SELECT 11/10:
+
+#Operadores de Comparación
+< menor que
+> mayor que
+= igual que
+<= menor igual que
+>= mayor igual que
+<> no igual o diferente que
+!= no igual que
+SELECT 10 > 1; devuelve True o False
+
+
 #Descargando Postgres y PG Admin
 
 Tutoriales de Instalación
