@@ -17,6 +17,26 @@ Ejemplo
 != no igual que
 SELECT 10 > 1; devuelve True o False
 
+#Operadores Logicos
+Operador AND          
+OP1 OP2 Salida
+V   V     V
+V   F     F
+F   V     F
+F   F     F
+
+Operador OR
+OP1 OP2 Salida
+V   V     V
+V   F     V
+F   V     V
+F   F     F
+
+Operador NOT
+OP1 Salida
+V    F
+F    V
+
 
 #Descargando Postgres y PG Admin
 
