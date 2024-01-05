@@ -43,6 +43,27 @@ F    V
 
 SELECT NOT True;
 
+#Operadores de Concatenación ||  o la  function CONCAT()
+SELECT 'Johao' || ' ' || 'Marcos' || ' ' || 'Maldonado';
+SELECT CONCAT('JOHAO',' ','Marcos');
+
+#Longitud hallar cantidad digitos
+SELECT length('Nelson');
+#Mayuscula
+SELECT UPPER('nelson');
+#Minuscula
+SELECT lower('ANDRES');
+
+
+
+
+
+
+
+
+
+
+
 #Descargando Postgres y PG Admin
 
 Tutoriales de Instalación
