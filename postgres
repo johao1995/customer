@@ -25,6 +25,8 @@ V   F     F
 F   V     F
 F   F     F
 
+SELECT 10 = 10 AND 20 = 20;
+
 Operador OR
 OP1 OP2 Salida
 V   V     V
@@ -32,11 +34,14 @@ V   F     V
 F   V     V
 F   F     F
 
+SELECT 10 = 10 OR 20 = 5;
+
 Operador NOT
 OP1 Salida
 V    F
 F    V
 
+SELECT NOT True;
 
 #Descargando Postgres y PG Admin
 
