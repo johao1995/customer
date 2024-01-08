@@ -92,6 +92,12 @@ SELECT * FROM tb_articulos WHERE description LIKE 'R%' Empiece con R
 SELECT * FROM tb_articulos WHERE description LIKE '%a' Terminen con a
 SELECT * FROM tb_articulos WHERE description LIKE '%no%' Contiene no
 
+#GROUP BY
+Agrupo por unidad.code y unidad.description
+SELECT unidad.code,unidad.description,COUNT(arti.unidad_medida_id) AS cantidad 
+FROM tb_articulos arti INNER JOIN tb_unidad_medidas unidad ON arti.unidad_medida_id = unidad.id
+GROUP BY unidad.code,unidad.description;
+
 #Descargando Postgres y PG Admin
 
 Tutoriales de Instalación
