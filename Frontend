@@ -179,6 +179,15 @@ click()---> evento click
 
 
 ============================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+   <t t-name="pos_res_partner_PartnerDetailsEdit" t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension" owl="1">
+     <xpath expr="//input[@name='street']" position="after">
+          <h3>Probando</h3>
+      </xpath>
+   </t>
+</templates>
+
 -El atributo xml:space="preserve" se utiliza para preservar el espacio en blanco, lo que significa que 
 los espacios en blanco iniciales y finales en los elementos de texto no se truncarán o ignorarán.
 - <t t-name="johao": Este atributo t-name asigna un nombre a tu plantilla QWeb. En este caso, la plantilla se llama "johao".
@@ -190,3 +199,12 @@ base que estás extendiendo. En este caso, estás extendiendo la plantilla llama
 Hay dos modos posibles: "extension" para extender y "replace" para reemplazar.
 
 - owl="1": Este atributo indica que estás utilizando el formato OWL (Odoo Widget Library) en lugar del antiguo sistema de widgets.
+
+Finalmente, agregue el archivo js y la plantilla qweb en los activos.
+
+'assets': {
+   'point_of_sale.assets': [
+       'custom_pos/static/src/js/**/*',
+       'custom_pos/static/src/xml/pos_screen.xml',
+   ],
+},
