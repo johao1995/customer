@@ -176,3 +176,17 @@ $(document).ready(function () {
 
 click()---> evento click
 });
+
+
+============================================
+-El atributo xml:space="preserve" se utiliza para preservar el espacio en blanco, lo que significa que 
+los espacios en blanco iniciales y finales en los elementos de texto no se truncarán o ignorarán.
+- <t t-name="johao": Este atributo t-name asigna un nombre a tu plantilla QWeb. En este caso, la plantilla se llama "johao".
+
+-   <t-inherit="point_of_sale.PartnerDetailsEdit": Este atributo t-inherit especifica la plantilla 
+base que estás extendiendo. En este caso, estás extendiendo la plantilla llamada "point_of_sale.PartnerDetailsEdit".
+
+-  t-inherit-mode="extension": Este atributo t-inherit-mode indica que estás extendiendo la plantilla base. 
+Hay dos modos posibles: "extension" para extender y "replace" para reemplazar.
+
+- owl="1": Este atributo indica que estás utilizando el formato OWL (Odoo Widget Library) en lugar del antiguo sistema de widgets.
