@@ -87,7 +87,7 @@ SELECT EXTRACT(MINUTE FROM current_time)
 --SEGUNDO
 SELECT EXTRACT(SECOND FROM current_time)
 
-#LIKE
+#LIKE y ILIKE (hace lo mismo que el like solo que no distingue si es mayuscula o minuscula)
 SELECT * FROM tb_articulos WHERE description LIKE 'R%' Empiece con R
 SELECT * FROM tb_articulos WHERE description LIKE '%a' Terminen con a
 SELECT * FROM tb_articulos WHERE description LIKE '%no%' Contiene no
