@@ -119,6 +119,23 @@ class ReportCustomerxlsx(models.AbstractModel):
             result.append((user.id,name))-->Necesita el Id del register y luego va el nombre que deseas que aparesca
         return result
 
+    El método _name_search en Odoo se utiliza para personalizar la búsqueda de registros cuando se realiza una búsqueda en un campo Many2one 
+    basado en el nombre. La implementación típica de este método incluye la construcción de un dominio de búsqueda basado en el nombre proporcionado y 
+   luego utilizando ese dominio para realizar una búsqueda en la base de datos.
+
+    -name='': El parámetro name es el nombre que se está buscando.
+    -args=None: El parámetro args representa cualquier argumento adicional que se pueda pasar al método. 
+    En tu código, se inicializa como una lista vacía si no se proporciona.
+
+    -operator='ilike': El parámetro operator indica el operador de comparación que se utilizará en las consultas de búsqueda. 
+    Por defecto, se establece en 'ilike', que realiza una búsqueda insensible a mayúsculas y minúsculas y admite comodines.
+
+    -limit=100: El parámetro limit indica el límite máximo de registros que se devolverán en la búsqueda.
+    -name_get_uid=None: El parámetro name_get_uid se utiliza para especificar el ID de usuario que se utilizará para obtener los nombres de los registros encontrados.
+    -El cuerpo del método construye un dominio de búsqueda (domain) basado en el nombre proporcionado. 
+     Si se proporciona un nombre, se crea un dominio que busca registros cuyo nombre o categoría coincidan con el nombre proporcionado. 
+     Luego, el método llama a _search con este dominio y los argumentos adicionales (args) y devuelve el resultado
+
     @api.model
     def _name_search(self,name,args=None,operator='ilike',limit=100,name_get_uid=None):
         args = args or []
