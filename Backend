@@ -118,7 +118,16 @@ class ReportCustomerxlsx(models.AbstractModel):
             name="{}(+{})".format(self.name,self.phone)
             result.append((user.id,name))-->Necesita el Id del register y luego va el nombre que deseas que aparesca
         return result
-        
+
+    @api.model
+    def _name_search(self,name,args=None,operator='ilike',limit=100,name_get_uid=None):
+        args = args or []
+        domain = []
+    
+        if name:
+            domain = ['|',('name',operator,name),('category',operator,name)]
+        return self._search(domain + args,limit=limit,access_rights_uid=name_get_uid)
+
         
 Tipos de excepciones en Odoo
 Las excepciones se utilizan en programación para alertar de situaciones anómalas que suceden durante la ejecución de una aplicación o programa. En Odoo se utilizan con el mismo objetivo y la manera de implementarlas es utilizando la palabra reservada raisedel lenguaje Python. La forma en la que se presentan al usuario es mediante una ventana en la parte superior del navegador en la que se muestra el tipo de excepción y el mensaje asociado.
@@ -789,3 +798,4 @@ date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto
                 </graph>
             </field>
 </record>
+
