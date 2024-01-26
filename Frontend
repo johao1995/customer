@@ -98,6 +98,7 @@ options=no_quick_create-->no crear(te oculta la opcion de crear), no_create_edit
 OJO: cuando tu didgitas un nombre en un vista en un campo Many2one por defecto te mostrar Create , create y edit, Buscar mas
 options=no_quick_create-->no crear(te oculta la opcion de crear)
 no_create_edit-->no crear y eitar(te quita la opcion de crear y editar)
+options={'no_create':True} --> oculta la funcion de crear y (crear y editar) es decir hace la funcion de no_quick_create,no_create_edit
 Tipos de Monedas
 creas un campo para ver el tipo de moneda que seleccionaras
 currency_id=fields.Many2one(comodel_name="res.currency")
