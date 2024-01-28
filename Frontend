@@ -79,7 +79,9 @@ ejemplo
 <field name="" decoration-info=" field &gt 100"/> 
 <field name="" decoration-info=" field &lt 100"/>
 
-#En Odoo 14, la clase "oe_button_box" se utiliza para definir un contenedor de botones en la interfaz de usuario de Odoo. Esta clase se utiliza para agrupar un conjunto de botones relacionados en una sola área de la pantalla
+#En Odoo 14, la clase "oe_button_box" se utiliza para definir un contenedor de botones en la interfaz de usuario de Odoo. 
+Esta clase se utiliza para agrupar un conjunto de botones relacionados en una sola área de la pantalla
+En Odoo, el atributo oe_stat_button se utiliza para aplicar un estilo específico a un botón y representarlo como un botón de estadísticas
 <div class="oe_button_box" name="button_box">
     <button class="oe_highlight" icon="" >Guardar</button> -->icon="" te mostrara el icono de font awesome
     <button class="oe_secondary">Cancelar</button>
