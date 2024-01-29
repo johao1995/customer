@@ -1,3 +1,15 @@
+#Registrar data desde csv 
+id,name,last_name,city,comision
+gestor_ventas_comercial_1,Jeferson Josue,Mendoza,Lima,84.00
+gestor_ventas_comercial_2,Melandro Sebastian,Mundieta,Lima,62.00
+gestor_ventas_comercial_3,Andres Julio,Alvares,Lima,40.00
+gestor_ventas_comercial_4,Salazar Mundieta,Narvaes,Lima,54.00
+
+en nombre del archivo debe ser el nombre del model por ejemplo gestor.ventas.comercial es el model
+y el nombre del archivo csv seria gestor.ventas.comercial.csv
+
+
+
 #Scaffold --> Para crear modulos configurados mediante codigo desde la terminal
 odoo-bin.py 
 python odoo-bin scaffold my_module addons_path/customer_addons 
