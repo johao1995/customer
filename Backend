@@ -9,6 +9,12 @@ en nombre del archivo debe ser el nombre del model por ejemplo gestor.ventas.com
 y el nombre del archivo csv seria gestor.ventas.comercial.csv
 
 
+#class Comercial(models.Model):
+    _name = "gestor.ventas.comercial"
+    _description = "Informacion de Personal Comercial"
+    _inherit = "mail.thread"
+    _rec_name = "last_name" --> le estoy diciendo que sera el identifcador de registro al realizar relaciones Many2one,Many2many
+
 
 #Scaffold --> Para crear modulos configurados mediante codigo desde la terminal
 odoo-bin.py 
