@@ -834,3 +834,19 @@ date = fields.Date(default=lambda self:fields.Date.context_today(self)) --> esto
             </field>
 </record>
 
+
+#======Configuraciones============
+res.config.settings
+
+SI deseo agregar una opcion en configuraciones como por ejemplo campo requerido, si en configruaaciones esta activada las opcion de campo requerido
+el campo debe ser requerdio en un model de una vista
+from odoo import fields,models,api
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
+
+    account_analytic_required = fields.Boolean(string="Campo Cuenta Analitica",
+                                               default=False,
+                                               config_parameter="field_analytic_distribution_required.account_analytic_required")
+para obtener el valor de esa opcion , ya que sera True o False
+elf.env["ir.config_parameter"].sudo().get_param("field_analytic_distribution_required.account_analytic_required"))
