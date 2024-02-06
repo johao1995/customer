@@ -850,3 +850,6 @@ class ResConfigSettings(models.TransientModel):
                                                config_parameter="field_analytic_distribution_required.account_analytic_required")
 para obtener el valor de esa opcion , ya que sera True o False
 elf.env["ir.config_parameter"].sudo().get_param("field_analytic_distribution_required.account_analytic_required"))
+
+#self.env.search_read([],['code']) --> esto me obtiene en una lista con un diccionario , incluyse el id(por defecto incluye) y el code
+self.env["school.student"].search_read([],['code'])
