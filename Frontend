@@ -165,7 +165,7 @@ ahora en la view form
 </record>
 
 #posiciones para herencias
-div[1] empieza con el 1
+div[@name='data']]1] empieza con el 1
 
 ================================JAVASCRIPT===========================
 
