@@ -217,3 +217,17 @@ Finalmente, agregue el archivo js y la plantilla qweb en los activos.
        'custom_pos/static/src/xml/pos_screen.xml',
    ],
 },
+=====Report PDF====
+<page>
+                        <header>
+                            <div class="row">
+                                <div class="col-6">
+                                    <img t-attf-src="data:image/png;base64,{{company.logo}}"/> --> para traer una imagen , company.logo es un ibjeto de res.company y esat traendo la url de la imagen
+                                </div>
+
+                                <div class="col-6">
+                                    <h2><t t-esc="data['date_today']"/></h2>
+                                </div>
+                            </div>
+                        </header>
+</page>
