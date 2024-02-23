@@ -1,0 +1,2 @@
+#Para obtener la ip del contenedor del postgres 
+sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <nombre_del_contenedor_de_postgres>
