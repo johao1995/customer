@@ -1,3 +1,29 @@
+========== Odoo Javascript PUnto Venta=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="modulo.name_template" t-inherit="point_of_sale.PartnerDetailsEdit --> nombre del template" t-inherit-mode="extension"  owl="1">
+        <xpath expr="//input[@name='street']" position="after">
+            <h3>NUevo Campo</h3>
+        </xpath>
+    </t>
+</templates>
+__manifest__.py --> se configura de esta manera el assets
+{
+    "name":"johao point of sale",
+    "depends":["point_of_sale"],
+    "data":[],
+    "assets":{
+        "point_of_sale.assets":[
+            "modulo_point_sale/static/src/xml/PartnerListScreen.xml"
+        ]
+    }
+}
+
+
+
+
+
 ======================JavaScript=============
 # Creando una clase
 
