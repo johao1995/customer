@@ -1,0 +1,34 @@
+======================JavaScript=============
+# Creando una clase
+
+class Customer{
+    constructor(name,document){
+        this.name = name;
+        this.document = document;
+    }
+
+    get_data_customer(){
+        console.log("Cliente:",this.name);
+        console.log("Documento:",this.document);
+    }
+
+}
+
+const obj1 = new Customer("Johao",72154125);
+obj1.get_data_customer();
+
+# Heredando clase
+class Work extends Customer{
+    constructor(name,document,area){
+        super(name,document)
+        this.area = area;
+    };
+
+    get_data_work(){
+        console.log("Cliente:",this.name);
+        console.log("Documento:",this.document);
+        console.log("Area:",this.area);
+    }
+
+}
+const obj_work = new Work("Johao",72154125,"Odoo v16");
