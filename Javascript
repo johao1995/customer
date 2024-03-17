@@ -1,3 +1,46 @@
+====Backend Punto Venta========
+class Session(models.Model):
+    _inherit = "pos.session"
+    #Esta función posiblemente se utiliza para cargar los modelos de datos necesarios para la interfaz de usuario del Punto de Venta.
+    @api.model
+    def _pos_ui_models_to_load(self):
+        result = super()._pos_ui_models_to_load()
+        result.append('l10n_latam.identification.type')
+        result.append("l10n_pe.res.city.district")
+     
+        return result
+    #Esta función probablemente se utiliza para obtener el nombre del campo que se mostrará en la interfaz de usuario del Punto de Venta
+    def _get_pos_ui_l10n_pe_res_city_district(self, params):
+        return self.env['l10n_pe.res.city.district'].search_read(**params['search_params'])
+    #esta función parece estar relacionada con la carga de campos de nombre
+    def _loader_params_l10n_pe_res_city_district(self):
+        return {'search_params': {'domain': [], 'fields': ["name","code"]}}
+    
+    def _get_pos_ui_l10n_latam_identification_type(self, params):
+        return self.env['l10n_latam.identification.type'].search_read(**params['search_params'])
+
+    def _loader_params_l10n_latam_identification_type(self):
+        return {'search_params': {'domain': [], 'fields': ["name","l10n_pe_vat_code"]}}
+
+    # Esta function muestra los campos que usaremos en el punto de venta
+     def _loader_params_res_partner(self):
+             params = super()._loader_params_res_partner()
+             params["search_params"]["fields"].append("l10n_latam_identification_type_id")
+             params["search_params"]["fields"].append("l10n_pe_district")
+             return params
+
+    <!--def _loader_params_res_partner(self):
+        return {
+            'search_params': {
+                'domain': [],
+                'fields': [
+                    'name', 'street', 'city', 'state_id', 'country_id', 'vat', 'lang', 'phone', 'zip', 'mobile', 'email',
+                    'barcode', 'write_date', 'property_account_position_id', 'property_product_pricelist', 'parent_name',
+                ],
+            },
+        }-->
+
+
 ========== Odoo Javascript PUnto Venta=======
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -25,6 +68,22 @@ __manifest__.py --> se configura de esta manera el assets
 
 
 ======================JavaScript=============
+
+odoo.define('pos_res_partner.models', function (require) {
+    "use strict";
+    const { PosGlobalState } = require('point_of_sale.models');
+    const Registries = require("point_of_sale.Registries");
+   
+    const PosGlobalStateModels = (PosGlobalState) => class PosGlobalStateModels extends PosGlobalState {
+        async _processData(loadedData) {
+            await super._processData(loadedData);
+            this.identification_type = loadedData['l10n_latam.identification.type'];
+            this.l10n_pe_district = loadedData["l10n_pe.res.city.district"];
+        }
+    }
+    Registries.Model.extend(PosGlobalState, PosGlobalStateModels);
+
+});
 # Creando una clase
 
 class Customer{
