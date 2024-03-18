@@ -63,6 +63,7 @@ __manifest__.py --> se configura de esta manera el assets
     }
 }
 
+=====Frontend para Javascript Punto Venta=======
 
 
 
