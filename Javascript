@@ -40,6 +40,36 @@ class Session(models.Model):
             },
         }-->
 
+odoo.define("modulo_punto_venta.models",function(require){
+    "use strict";
+    const { PosGlobalState } = require("point_of_sale.models");
+    const Registries = require("point_of_sale.Registries");
+
+    const PosGlobalStateModels = (PosGlobalState) => class PosGlobalStateModels extends PosGlobalState{
+        async _processData(loadedData){
+            await super._processData(loadedData);
+            this.l10n_latam_identification_type = loadedData['l10n_latam.identification.type'];
+            console.log("===l10n_latam_identification_type===");
+            console.log(this.l10n_latam_identification_type);
+        }
+    }
+    Registries.Model.extend(PosGlobalState,PosGlobalStateModels);
+
+}); --> esto obtiene la tabla con los campos que se agrego  _loader_params_l10n_latam_identification_type
+ Ahora para mostrarlo en el template 
+ <div class="partner-detail">
+                        <span class="label">Tipo Doc</span>
+                        <select class="detail" name="l10n_latam_identification_type_id">
+                            <option value="0">None</option>
+                            <t t-foreach="env.pos.l10n_latam_identification_type" t-as="identification_type" t-key="identification_type.id">
+                                <option t-att-value="identification_type.id">
+                                    <t t-esc="identification_type.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div> --> para obtener todos los registros de la tabla una ves habiendo sido cargado en   
+this.l10n_latam_identification_type = loadedData['l10n_latam.identification.type'];  usamos para obtenerlo en el template el env.pos.l10n_latam_identification_type
+
 
 ========== Odoo Javascript PUnto Venta=======
 <?xml version="1.0" encoding="UTF-8"?>
