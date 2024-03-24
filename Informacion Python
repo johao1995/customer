@@ -28,3 +28,17 @@ el ejemplo de la funcion def get_number_pares lo resumo en la linea de abajo y h
 number_pares=[num for num in [1,2,3,4,5,6,7,8] if num%2==0]
 print(number_pares)
 
+#Creacion de excel
+import xlsxwriter
+import base64
+from io import BytesIO
+
+BytesIO: BytesIO es una clase proporcionada por el módulo io de Python. Se utiliza para crear un objeto de flujo de bytes 
+en la memoria RAM en lugar de en un archivo en el sistema de archivos.
+fou = BytesIO()
+workbook = xlsxwriter.Workbook(fou) --> Esto significa que en lugar de escribir los datos del libro de trabajo en un archivo en el sistema d
+e archivos, se escriben en el búfer de bytes en la memoria RAM representado por fou.
+
+contenido = fou.getvalue()
+-fou.getvalue() -> se utiliza para obtener los datos almacenados en ese buffer en forma de una secuencia de bytes.
+base64.encodebytes(contenido) ->Esto se hace para convertir los datos binarios en una forma de texto que sea seguro para ser almacenado en un campo binario en un modelo de Odoo 
