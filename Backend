@@ -359,7 +359,11 @@ class Customer(models.Model):
                     rec.get_customer()
             </field>
  </record>
-
+#Puedes pasar context desde un create,search, browse, read, etc.
+Ejemplo
+self.env["account.move"].with_context(check_move_validity=False).create({
+                "partner_id":partner.id
+            })
 #Ojo cuando desees registrar un objeto
 no se puede registrar un objeto completo , basta solo con el id del objeto ,para registrarlo a un campo many2one por que si no saldra error
 #Para obtener los datos que envio desde un context hacia un model desde el ir.actions.act_window
