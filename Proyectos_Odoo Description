@@ -1,0 +1,5 @@
+Modulos desarrollados
+account_payment_approve -> conciste hacer validacion de pagos desde configuración y usuarios 
+detraction -> consiste en calcular detraccion de los movimientos account.move
+invoices_merging -> cociste en unir detalles de facturas y crear una nueva con esos detalles o crear una nueva factura con esos detalles
+order_line_sequence -> conciste en asignar secuencia de numeros a las lineas de pedidos (Compra,Ventas) y mostrarlo en el reporte
