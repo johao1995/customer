@@ -1,3 +1,13 @@
+-POner el simbolo del tipo de moneda a otro campo
+class ModelReconcile(models.Model):
+    _name = 'model.reconcile'
+    amount = fields.Float(string='Monto contable', required=True, tracking=True)
+    currency_id = fields.Many2one('res.currency', string='Moneda', required=True, tracking=True)
+views tree
+<field name="currency_id"/>
+<field name="amount" options="{'currency_field':'currency_id'}"/>
+
+
 class Comercial(models.Model):
     _name = "gestor.ventas.comercial"
     _description = "Informacion de Personal Comercial"
